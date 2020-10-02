@@ -44,8 +44,7 @@ public class Ejercicio1 {
 		fw.write(cadena);
 		fw.flush();
 		fw.close();
-	}catch(
-	FileNotFoundException ex1)
+	}catch(FileNotFoundException ex1)
 	{
 		System.out.printf("\n Ha ocurrido un eror. No se ha encontrado el fichero:\n%s", ex1.getMessage());
 
