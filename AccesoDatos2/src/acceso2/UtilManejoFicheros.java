@@ -76,7 +76,7 @@ public class UtilManejoFicheros {
 		
 	}
 	
-
+	// metodo para copiar ficheros con el codigo escogido
 		
 	public static void copiarFichero (String f1, String f2, String cod) throws IOException	{
 		

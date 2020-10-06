@@ -79,13 +79,15 @@ public class Pantalla {
 				 texto1 = txtTexto1.getText();
 				 texto2 = txtTexto2.getText();
 				 
-				
+				 System.out.println ("fichero origen : "+ texto1);
+				 System.out.println ("fichero destino : "+ texto2);
 				 
 				 //comprobar que haya valores en texto1, texto2
-				 if (texto1 == "")
+				 if ( texto1.equals(""))
+					
 					 System.out.println ("No has escrito un nombre de fichero origen");
 				 
-				 else if (texto2 =="")
+				 else if (texto2.equals(""))
 					 // si no escribimos algo en el campo fichero1 o fichero2, mandamos mensaje
 					 System.out.println ("No has escrito un nombre de fichero destino");
 				
@@ -124,11 +126,11 @@ public class Pantalla {
 		JButton btnNewButton_1 = new JButton("Limpiar");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
 				// poner los textos txtTexto1 y txtTexto2 vacios
-				// txtTexto1 = " ";
-				// txtTexto2 = " ";
-				// setText(txtTexto1);
-				// setText(txtTexto2);
+				
+				 txtTexto1.setText("");
+				 txtTexto2.setText("");
 				
 				
 			}
