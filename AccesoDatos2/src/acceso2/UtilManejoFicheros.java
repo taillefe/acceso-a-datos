@@ -1,14 +1,19 @@
 package acceso2;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 public class UtilManejoFicheros {
 	
@@ -81,15 +86,25 @@ public class UtilManejoFicheros {
 		//Se abre el fichero1 para lectura
 		
 		String cadena = "";
-		try (FileReader fr1 = new FileReader(f1)){
+		
+		FileInputStream fis = new FileInputStream(f1);
+			try (
+				
+					InputStreamReader fr1 = new InputStreamReader(fis,StandardCharsets.UTF_8);
+					//	BufferedReader br= new BufferedReader(fr1);
+			){
+		
+	//	try (FileReader fr1 = new FileReader(f1)){  
 
 			int c;
-			
+			String str="";
+		//	while ((str = br.readLine()) != null ) {
+		//		cadena = cadena + str;
+		
 			while ((c = fr1.read()) != -1 ) {
-				
-				
-				cadena = cadena + (char)c;
-				System.out.println("cadena : "+ cadena);
+					cadena = cadena + (char)c;
+			
+			System.out.println("cadena : "+ cadena);
 		
 			}
 		}
@@ -106,6 +121,7 @@ public class UtilManejoFicheros {
 
 			//fw2 = new FileWriter(f2);  si no usamos la codificacion
 			FileOutputStream fos=new FileOutputStream(f2);
+	//	OutputStreamWriter osw = new OutputStreamWriter(fos, StandardCharsets.ISO_8859_1); codificacion fija
 			OutputStreamWriter osw = new OutputStreamWriter(fos, cod);
 			
 			

@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.awt.event.ActionEvent;
 import javax.swing.JFileChooser;
 import javax.swing.JComboBox;
@@ -20,7 +21,8 @@ public class Pantalla {
 	//defino variables
 			String texto1= "";
 			String texto2 = "";
-			String codigo =  "" ;
+			String codigo  ;
+			
 	private JFrame frame;
 	private JTextField txtTexto2;
 	private JTextField txtTexto1;
@@ -101,7 +103,7 @@ public class Pantalla {
 						
 						// copiamos el contenido del fichero1 en el fichero2	 
 						 try {
-							UtilManejoFicheros.copiarFichero(texto1, texto2,codigo);
+							UtilManejoFicheros.copiarFichero(texto1, texto2, codigo);
 						} catch (IOException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -149,10 +151,12 @@ public class Pantalla {
 		frame.getContentPane().add(lblCodigo);
 		
 		JComboBox comboBoxCodigo = new JComboBox();
-		comboBoxCodigo.setModel(new DefaultComboBoxModel(new String[] {"ISO-8859-1", "UTF-8", "US-ASCII"}));
+		comboBoxCodigo.setModel(new DefaultComboBoxModel(new String[] {"ISO_8859_1", "UTF_8", "US_ASCII"}));
 		comboBoxCodigo.setBounds(144, 105, 155, 22);
 		frame.getContentPane().add(comboBoxCodigo);
+		
 		codigo= (String)comboBoxCodigo.getSelectedItem();
+		
 		
 	}
 }
