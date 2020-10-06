@@ -10,6 +10,9 @@ import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
+import javax.swing.JFileChooser;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class Pantalla {
 
@@ -17,6 +20,7 @@ public class Pantalla {
 	//defino variables
 			String texto1= "";
 			String texto2 = "";
+			String codigo =  "" ;
 	private JFrame frame;
 	private JTextField txtTexto2;
 	private JTextField txtTexto1;
@@ -49,7 +53,7 @@ public class Pantalla {
 	 */
 	private void initialize() {
 		
-		
+	
 		
 		
 		frame = new JFrame();
@@ -72,7 +76,9 @@ public class Pantalla {
 				//asignar valores a los nombres de los archivos
 				 texto1 = txtTexto1.getText();
 				 texto2 = txtTexto2.getText();
+				 
 				
+				 
 				 //comprobar que haya valores en texto1, texto2
 				 if (texto1 == "")
 					 System.out.println ("No has escrito un nombre de fichero origen");
@@ -95,7 +101,7 @@ public class Pantalla {
 						
 						// copiamos el contenido del fichero1 en el fichero2	 
 						 try {
-							UtilManejoFicheros.copiarFichero(texto1, texto2);
+							UtilManejoFicheros.copiarFichero(texto1, texto2,codigo);
 						} catch (IOException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -110,18 +116,22 @@ public class Pantalla {
 		});
 		
 		
-		btnNewButton.setBounds(89, 144, 89, 23);
+		btnNewButton.setBounds(88, 152, 89, 23);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Limpiar");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				// txtTexto1 ="";
+				// poner los textos txtTexto1 y txtTexto2 vacios
+				// txtTexto1 = " ";
+				// txtTexto2 = " ";
+				// setText(txtTexto1);
+				// setText(txtTexto2);
 				
 				
 			}
 		});
-		btnNewButton_1.setBounds(232, 144, 89, 23);
+		btnNewButton_1.setBounds(239, 152, 89, 23);
 		frame.getContentPane().add(btnNewButton_1);
 		
 		txtTexto2 = new JTextField();
@@ -133,5 +143,16 @@ public class Pantalla {
 		txtTexto1.setBounds(100, 37, 241, 20);
 		frame.getContentPane().add(txtTexto1);
 		txtTexto1.setColumns(10);
+		
+		JLabel lblCodigo = new JLabel("Codigo");
+		lblCodigo.setBounds(88, 109, 46, 14);
+		frame.getContentPane().add(lblCodigo);
+		
+		JComboBox comboBoxCodigo = new JComboBox();
+		comboBoxCodigo.setModel(new DefaultComboBoxModel(new String[] {"ISO-8859-1", "UTF-8", "US-ASCII"}));
+		comboBoxCodigo.setBounds(144, 105, 155, 22);
+		frame.getContentPane().add(comboBoxCodigo);
+		codigo= (String)comboBoxCodigo.getSelectedItem();
+		
 	}
 }

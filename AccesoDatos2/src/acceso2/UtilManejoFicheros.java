@@ -1,10 +1,14 @@
 package acceso2;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 
 public class UtilManejoFicheros {
 	
@@ -40,7 +44,7 @@ public class UtilManejoFicheros {
 		File f1 = new File (nombre);
 		if (!f1.exists()) {
 			
-			System.out.println ("El fichero " + nombre + "no existe");
+			System.out.println ("El fichero " + nombre + " no existe");
 			return false;
 		}
 		else
@@ -69,7 +73,7 @@ public class UtilManejoFicheros {
 	
 
 		
-	public static void copiarFichero (String f1, String f2) throws IOException	{
+	public static void copiarFichero (String f1, String f2, String cod) throws IOException	{
 		
 	
 		// en este caso no hace falta cerrar la conexión porque solo 
@@ -100,11 +104,18 @@ public class UtilManejoFicheros {
 		try
 		{
 
-			fw2 = new FileWriter(f2);
-			fw2.write(cadena);
+			//fw2 = new FileWriter(f2);  si no usamos la codificacion
+			FileOutputStream fos=new FileOutputStream(f2);
+			OutputStreamWriter osw = new OutputStreamWriter(fos, cod);
+			
+			
+			
+			
+			
+			
+			osw.write(cadena);
 
-			fw2.flush();
-			fw2.close();
+			osw.close();
 		}catch(
 		FileNotFoundException ex2)
 		{
