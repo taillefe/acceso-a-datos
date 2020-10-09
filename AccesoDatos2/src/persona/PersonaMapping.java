@@ -15,22 +15,22 @@ public class PersonaMapping{
 	
 	// crear metodo de guardar y otro leer
 	
-	public void guardarListado( ArrayList<Persona> p ) throws IOException {
+	public static void guardarListado( ArrayList<Persona> p ) throws IOException {
 		
 		// se abre  un fichero para escribir en él
-		FileOutputStream fos = new FileOutputStream(" ");                                                 
+		FileOutputStream fos = new FileOutputStream("C:\\Users\\PC33\\Desktop\\Prueba\\persona.txt");                                                 
 	    ObjectOutputStream oos = new ObjectOutputStream(fos);
 		
 	    
 	    	oos.writeObject(p);
-		
+	    	oos.close();
 	}
 	
 	public ArrayList<Persona> leerListado() throws IOException, ClassNotFoundException{
 		
 		ArrayList<Persona> listaPersonas;
 		
-		FileInputStream fis = new FileInputStream(" ");
+		FileInputStream fis = new FileInputStream("\"C:\\\\Users\\\\PC33\\\\Desktop\\\\Prueba\\\\persona.txt");
 		ObjectInputStream ois = new ObjectInputStream(fis);
 
 		listaPersonas = (ArrayList<Persona>) ois.readObject();

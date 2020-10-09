@@ -1,5 +1,7 @@
 package persona;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -22,6 +24,21 @@ public class Principal {
 		
 		listado.add(p);
 		
+		
+		//escribir en el fichero a través del método guardarListado de la clase PersonaMapping
+		try {
+			
+			PersonaMapping.guardarListado(listado);
+			
+			
+		} catch (FileNotFoundException e1) {
+	         System.out.println("1"+e1.getMessage());                                                          
+		} catch (IOException e2) {
+		         System.out.println("2"+e2.getMessage());
+		} 
+		    
+	
+		// leer el fichero
 		
 		
 		
