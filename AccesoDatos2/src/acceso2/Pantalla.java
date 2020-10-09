@@ -158,6 +158,7 @@ public class Pantalla {
 		frame.getContentPane().add(comboBoxCodigo);
 		
 		codigo= (String)comboBoxCodigo.getSelectedItem();
+		System.out.println ("codigo escogido : "+ codigo);
 		
 		
 	}
