@@ -8,27 +8,28 @@ import java.util.ArrayList;
 
 public class Principal {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException, IOException {
 	
 		//crear un arrayList de persona y meter los objetos persona creados
 		
-		ArrayList<Persona> listado = new ArrayList<Persona>();
+		ArrayList<Persona> listadoEntrada = new ArrayList<Persona>();
+		ArrayList<Persona> listadoSalida = new ArrayList<Persona>();
 		
 		Persona p;
 		
 		p = new Persona("Lucas","Gonzalez",  LocalDate.parse("12/12/2000", DateTimeFormatter.ofPattern("dd/MM/yyyy")));
 		
-		listado.add(p);
+		listadoEntrada.add(p);
 		
 		p = new Persona("Pedro","Perez",  LocalDate.parse("11/11/2000", DateTimeFormatter.ofPattern("dd/MM/yyyy")));
 		
-		listado.add(p);
+		listadoEntrada.add(p);
 		
 		
 		//escribir en el fichero a través del método guardarListado de la clase PersonaMapping
 		try {
 			
-			PersonaMapping.guardarListado(listado);
+			PersonaMapping.guardarListado(listadoEntrada);
 			
 			
 		} catch (FileNotFoundException e1) {
@@ -40,11 +41,19 @@ public class Principal {
 	
 		// leer el fichero
 		
+		listadoSalida = PersonaMapping.leerListado();
+		for (Persona lista : listadoSalida) {
+			
+			System.out.println("contenido del fichero : " + lista);
+			
+			
+		}
 		
 		
-	}
+		
+	} // main
 
-}
+} //principal
 /*
 
 FileInputStream fis = new FileInputStream("Datos/Encuestados.txt");
