@@ -39,7 +39,7 @@ public class Principal {
 		} 
 		    
 	
-		// leer el fichero
+		// leer el fichero a través del método Leerlistado que devuelve un arrayList
 		
 		listadoSalida = PersonaMapping.leerListado();
 		for (Persona lista : listadoSalida) {
