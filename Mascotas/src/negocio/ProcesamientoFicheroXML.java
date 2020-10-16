@@ -92,4 +92,40 @@ public class ProcesamientoFicheroXML {
 	return mascotas;
 	
 	}
+	
+	public void guardarMascotas (String ruta, List<Mascota> listaMascotas) throws ParserConfigurationException, SAXException, IOException{
+	
+		
+	//List<Mascota> mascotas = new ArrayList<Mascota>();
+	//String nombre = "";
+	//String tipo = "";
+	//int edad = 0 ;
+	//String genero =  "";
+	
+	
+	
+	// clases DOM para construir la estructura XML
+	DocumentBuilderFactory dbfactory = DocumentBuilderFactory.newInstance();
+	DocumentBuilder dbuilder ;
+	
+	dBuilder = dbFactory.newDocumentBuilder();
+	Document doc =dBuilder.newDocument();
+	
+	//elemento raiz (<Mascotas<)
+	Element rootElement = doc.createElement(null, "mascotas");
+	
+	//añado el nodo raiz al documento
+	doc.appendChild(rootElement);
+
+	
+	//cada elemento <mascota> que tenemos en el listado
+	for (Mascota m:listaMascotas) {
+		
+	}//for
+	
+	
+	
+	}
+	
+	
 }
