@@ -10,20 +10,23 @@ public class EjercicioMascotas {
 
 	public static void main(String[] args) {
 	
-		List<Mascota> listamascotas = new ArrayList<Mascota>();
+		List<Mascota> listaM = new ArrayList<Mascota>();
 		
 		try
 		{
-			listamascotas = ProcesamientoFicheroXML.leerMascotas("C:\\Users\\PC33\\Desktop\\Prueba\\mascotas.xml");
+			listaM = ProcesamientoFicheroXML.leerMascotas("C:\\Users\\PC33\\Desktop\\Prueba\\mascotas.xml");
+			
+			System.out.println( "mascotas : " + listaM);
+			
 			Mascota nuevaMascota = new Mascota("Churchill","Gato",2,"Macho");
-			listamascotas.set(2,nuevaMascota);
+			listaM.set(2,nuevaMascota);
 			nuevaMascota = new Mascota ("Leo","Gato",0,"");
-			listamascotas.add(nuevaMascota);
-			for (Mascota m: listamascotas) {
+			listaM.add(nuevaMascota);
+			
 				
+			ProcesamientoFicheroXML.guardarMascotas("C:\\Users\\PC33\\Desktop\\Prueba\\mascotas.xml",listaM);
 				
-				
-			}
+			System.out.println( "mascotas modificadas : " + listaM);
 			
 		}catch(Exception e) {
 			e.printStackTrace();

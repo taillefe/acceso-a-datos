@@ -93,22 +93,15 @@ public class ProcesamientoFicheroXML {
 		
 	}//for
 	
-	System.out.println( "mascotas : " + mascotas);
+
 	
 	return mascotas;
 	
 	}
 	
-	public void guardarMascotas (String ruta, List<Mascota> listaMascotas) throws ParserConfigurationException, SAXException, IOException, TransformerException{
+	public static void guardarMascotas (String ruta, List<Mascota> listaMascotas) throws ParserConfigurationException, SAXException, IOException, TransformerException{
 	
 		
-	//List<Mascota> mascotas = new ArrayList<Mascota>();
-	//String nombre = "";
-	//String tipo = "";
-	//int edad = 0 ;
-	//String genero =  "";
-	
-	
 	
 	// clases DOM para construir la estructura XML
 	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
