@@ -8,7 +8,13 @@ import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -93,7 +99,7 @@ public class ProcesamientoFicheroXML {
 	
 	}
 	
-	public void guardarMascotas (String ruta, List<Mascota> listaMascotas) throws ParserConfigurationException, SAXException, IOException{
+	public void guardarMascotas (String ruta, List<Mascota> listaMascotas) throws ParserConfigurationException, SAXException, IOException, TransformerException{
 	
 		
 	//List<Mascota> mascotas = new ArrayList<Mascota>();
@@ -105,14 +111,14 @@ public class ProcesamientoFicheroXML {
 	
 	
 	// clases DOM para construir la estructura XML
-	DocumentBuilderFactory dbfactory = DocumentBuilderFactory.newInstance();
-	DocumentBuilder dbuilder ;
+	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+	DocumentBuilder dBuilder ;
 	
 	dBuilder = dbFactory.newDocumentBuilder();
 	Document doc =dBuilder.newDocument();
 	
 	//elemento raiz (<Mascotas<)
-	Element rootElement = doc.createElement(null, "mascotas");
+	Element rootElement = doc.createElementNS(null, "mascotas");
 	
 	//añado el nodo raiz al documento
 	doc.appendChild(rootElement);
@@ -120,8 +126,41 @@ public class ProcesamientoFicheroXML {
 	
 	//cada elemento <mascota> que tenemos en el listado
 	for (Mascota m:listaMascotas) {
+		Element mascota = doc.createElement("mascota"); // creacion de un nodo mascota
 		
+		// aqui creamos un nodo para el atributo nombre
+		
+		 //Element atributo =(Element)doc.createAttribute("nombre");
+		 mascota.setAttribute("nombre",m.getNombre());
+				
+		
+		
+		Element node =doc.createElement("tipo"); // creación de un nodo para el campo
+		// se crea un nodo de texto y se pega al nodo tipo
+		node.appendChild(doc.createTextNode(m.getTipo()));
+		mascota.appendChild(node); // El nodo del campo (tipo) se añade al nodo de mascota
+		
+		node = doc.createElement("edad");
+		node.appendChild(doc.createTextNode(String.valueOf(m.getEdad())));
+		mascota.appendChild(node);
+		
+		node = doc.createElement("genero");
+		node.appendChild(doc.createTextNode(m.getGenero()));
+		mascota.appendChild(node);
+		
+		// al final, se asigna el nodo mascota al nodo raiz (<mascotas>)
+		rootElement.appendChild(mascota);
 	}//for
+	
+	TransformerFactory transformerFactory  = TransformerFactory.newInstance();
+	Transformer transformer = transformerFactory.newTransformer();
+	
+	transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+	DOMSource source = new DOMSource(doc);
+	
+	StreamResult file = new StreamResult(new File(ruta));
+	
+	transformer.transform(source, file);
 	
 	
 	
