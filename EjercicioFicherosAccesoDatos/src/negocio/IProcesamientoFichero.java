@@ -1,9 +1,16 @@
 package negocio;
+import java.io.IOException;
+import java.util.List;
+
+import modelo.Libro;
+
 
 public interface IProcesamientoFichero {
 	
-	public default List<Libro> leerFichero(String ruta) {
-		
-	}
+	public  List<Libro> leerFichero(String ruta) throws IOException;
+
+	
+	public   void guardarFichero( List<Libro> listaLibros, String ruta);
+
 
 }

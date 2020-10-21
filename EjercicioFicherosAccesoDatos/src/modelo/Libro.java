@@ -1,56 +1,82 @@
 package modelo;
 
+import java.time.LocalDate;
+import java.util.List;
+
 public class Libro {
 	
-	String marca;
-	String modelo;
-	String color;
-	String matrícula;
-	int anoFabricacion;
+	String titulo;
+	String editorial;
+	String autor;
+	LocalDate fecha;
+	String genero;
+	List<Personaje> personajes;
 	
-	public Libro(String marca, String modelo, String color, String matrícula, int anoFabricacion) {
+	public Libro(String titulo, String editorial, String autor, LocalDate fecha, String genero,
+			List<Personaje> personajes) {
 		super();
-		this.marca = marca;
-		this.modelo = modelo;
-		this.color = color;
-		this.matrícula = matrícula;
-		this.anoFabricacion = anoFabricacion;
+		this.titulo = titulo;
+		this.editorial = editorial;
+		this.autor = autor;
+		this.fecha = fecha;
+		this.genero = genero;
+		this.personajes = personajes;
 	}
-	public String getMarca() {
-		return marca;
+
+	public String getTitulo() {
+		return titulo;
 	}
-	public void setMarca(String marca) {
-		this.marca = marca;
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
-	public String getModelo() {
-		return modelo;
+
+	public String getEditorial() {
+		return editorial;
 	}
-	public void setModelo(String modelo) {
-		this.modelo = modelo;
+
+	public void setEditorial(String editorial) {
+		this.editorial = editorial;
 	}
-	public String getColor() {
-		return color;
+
+	public String getAutor() {
+		return autor;
 	}
-	public void setColor(String color) {
-		this.color = color;
+
+	public void setAutor(String autor) {
+		this.autor = autor;
 	}
-	public String getMatrícula() {
-		return matrícula;
+
+	public LocalDate getFecha() {
+		return fecha;
 	}
-	public void setMatrícula(String matrícula) {
-		this.matrícula = matrícula;
+
+	public void setFecha(LocalDate fecha) {
+		this.fecha = fecha;
 	}
-	public int getAnoFabricacion() {
-		return anoFabricacion;
+
+	public String getGenero() {
+		return genero;
 	}
-	public void setAnoFabricacion(int anoFabricacion) {
-		this.anoFabricacion = anoFabricacion;
+
+	public void setGenero(String genero) {
+		this.genero = genero;
 	}
+
+	public List<Personaje> getPersonajes() {
+		return personajes;
+	}
+
+	public void setPersonajes(List<Personaje> personajes) {
+		this.personajes = personajes;
+	}
+
 	@Override
 	public String toString() {
-		return "Libro [marca=" + marca + ", modelo=" + modelo + ", color=" + color + ", matrícula=" + matrícula
-				+ ", anoFabricacion=" + anoFabricacion + "]";
+		return "Libro [titulo=" + titulo + ", editorial=" + editorial + ", autor=" + autor + ", fecha=" + fecha
+				+ ", genero=" + genero + ", personajes=" + personajes + "]";
 	}
+	
 	
 	
 
