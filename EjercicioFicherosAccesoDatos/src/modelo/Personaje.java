@@ -2,10 +2,11 @@ package modelo;
 
 public class Personaje {
 	
+
 	String nombre;
-	String importancia;
+	TipoImportancia importancia;
 	public enum TipoImportancia {
-		Principal, Secundario, Recurrente;
+		PRINCIPAL, SECUNDARIO, RECURRENTE;
 	}
 
 	public Personaje() {
@@ -24,11 +25,11 @@ public class Personaje {
 		this.nombre = nombre;
 	}
 	
-	public String getImportancia() {
+	public TipoImportancia getImportancia() {
 		return importancia;
 	}
-	public void setImportancia(String importancia) {
-		this.nombre = importancia;
+	public void setImportancia(TipoImportancia importancia) {
+		this.importancia = importancia;
 	}
 
 	@Override

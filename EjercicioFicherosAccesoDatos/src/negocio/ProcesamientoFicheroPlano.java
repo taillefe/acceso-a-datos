@@ -14,11 +14,13 @@ import modelo.Personaje;
 
 public class ProcesamientoFicheroPlano extends ProcesamientoFichero{
 	
-	public  List<Libro> leerFichero(String ruta) throws IOException 	{
+	
+	
+	public static  List<Libro> leerFichero(String ruta)  	{
 	
 		String cadena = "";
-		ArrayList<Libro> listaLibros;
-		List<Personaje> listaPersonajes;
+		ArrayList<Libro> listaLibros = new ArrayList();
+		List<Personaje> listaPersonajes = new ArrayList();;
 		String[] arrayLibros = null;
 		
 		
@@ -32,7 +34,7 @@ public class ProcesamientoFicheroPlano extends ProcesamientoFichero{
 		String genero;
 	
 		String nombre;
-		Personaje.TipoImportancia importancia;
+		String importanciaString;
 		
 		int i = 0;
 		try {
@@ -46,7 +48,7 @@ public class ProcesamientoFicheroPlano extends ProcesamientoFichero{
 			
 			while ((cadena = bfr.readLine()) != null ) {
 				
-				System.out.println("cadena : "+ cadena);
+				
 				
 				arrayLibros[i] = cadena; // cada fila es un libro que se introduce en una posicion del array
 				
@@ -65,16 +67,24 @@ public class ProcesamientoFicheroPlano extends ProcesamientoFichero{
 					
 				String personajes[] = partesLibro[5].split("-");
 				
-				//recorremos todo el array de partes del personaje
+				//recorremos todo el array de personajes
 				for (int cont = 0; cont < personajes.length; cont++) {
+					//cada parte del array contiene un personaje, vamos a dividirlos en nombre e importancia
 					
-					nombre = personajes[0];
-					importancia = personajes[1];
+					String partePersonaje[] = personajes[cont].split(",");
+					
+					nombre = partePersonaje[0];
+					importanciaString = partePersonaje[1];
 					
 				
 				//usamos el objeto personaje para introducir los datos en el array list de personajes
-					 listaPersonajes[cont] = new Personaje (nombre,importancia);
-				}	
+					
+					 Personaje.TipoImportancia importancia =Personaje.TipoImportancia.valueOf(importanciaString.toUpperCase());
+					 listaPersonajes.add(cont,new Personaje(nombre,importancia));
+				}
+				
+				// usamos el objeto libro para introducir los datos en el arrayList de listaLibros
+				listaLibros.add(i, new Libro(titulo,editorial, autor,fecha, genero, listaPersonajes));
 				
 				i++; // actualizar la variable que indica la posicion del libro dentro del array
 					 
@@ -84,12 +94,14 @@ public class ProcesamientoFicheroPlano extends ProcesamientoFichero{
 		{
 			System.out.printf("\nHa ocurrido un error. No se ha encontrado el fichero:\n%s",ex.getMessage());
 			
+		}catch(IOException ex)
+		{
+			ex.printStackTrace();
 		}
-	
 		
 		
 		
-		return null;
+		return listaLibros;
 
 	}//leerFichero
 
