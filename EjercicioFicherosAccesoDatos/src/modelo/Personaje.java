@@ -3,14 +3,19 @@ package modelo;
 public class Personaje {
 	
 	String nombre;
-	String genero;
-	enum Importancia {
+	String importancia;
+	public enum TipoImportancia {
 		Principal, Secundario, Recurrente;
 	}
-	public Personaje(String nombre, String genero) {
+
+	public Personaje() {
+		
+	}
+	public Personaje(String nombre, TipoImportancia Importancia) {
 		super();
 		this.nombre = nombre;
-		this.genero = genero;
+		this.importancia = importancia;
+	
 	}
 	public String getNombre() {
 		return nombre;
@@ -18,15 +23,17 @@ public class Personaje {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getGenero() {
-		return genero;
+	
+	public String getImportancia() {
+		return importancia;
 	}
-	public void setGenero(String genero) {
-		this.genero = genero;
+	public void setImportancia(String importancia) {
+		this.nombre = importancia;
 	}
+
 	@Override
 	public String toString() {
-		return "Personaje [nombre=" + nombre + ", genero=" + genero + "]";
+		return "Personaje [nombre=" + nombre + " + importancia =" + importancia +"]";
 	};
 	
 	

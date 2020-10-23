@@ -12,6 +12,10 @@ public class Libro {
 	String genero;
 	List<Personaje> personajes;
 	
+	public Libro() {
+		
+	}
+	
 	public Libro(String titulo, String editorial, String autor, LocalDate fecha, String genero,
 			List<Personaje> personajes) {
 		super();
