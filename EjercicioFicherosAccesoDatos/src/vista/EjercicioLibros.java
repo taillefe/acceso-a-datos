@@ -1,17 +1,25 @@
 package vista;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import modelo.Libro;
+import negocio.IProcesamientoFichero;
 import negocio.ProcesamientoFicheroPlano;
 
 public class EjercicioLibros {
 
 	public static void main(String[] args) {
 		
-		ArrayList<Libro> listadoLibros;
+		ArrayList<Libro> listadoLibros = null;
+		IProcesamientoFichero proc= new ProcesamientoFicheroPlano();
 		
-		listadoLibros = (ArrayList<Libro>) ProcesamientoFicheroPlano.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libros.txt");
+		try {
+			listadoLibros = (ArrayList<Libro>) proc.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libros.txt");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		System.out.println("cadena : "+ listadoLibros);
 		

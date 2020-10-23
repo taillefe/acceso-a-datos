@@ -16,7 +16,7 @@ public class ProcesamientoFicheroPlano extends ProcesamientoFichero{
 	
 	
 	
-	public static  List<Libro> leerFichero(String ruta)  	{
+	public List<Libro> leerFichero(String ruta)  	{
 	
 		String cadena = "";
 		ArrayList<Libro> listaLibros = new ArrayList();
