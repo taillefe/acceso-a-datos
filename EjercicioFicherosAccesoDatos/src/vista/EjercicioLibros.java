@@ -11,19 +11,20 @@ public class EjercicioLibros {
 
 	public static void main(String[] args) {
 		
+		
+		
+		
 		ArrayList<Libro> listadoLibros = null;
 		IProcesamientoFichero proc= new ProcesamientoFicheroPlano();
 		
-		try {
+	//	try {
 			listadoLibros = (ArrayList<Libro>) proc.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libros.txt");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	//	} catch (IOException e) {
+			
+	//		e.printStackTrace();
+	//	}
 		
 		System.out.println("cadena : "+ listadoLibros);
-		
-		
 
 	}
 
