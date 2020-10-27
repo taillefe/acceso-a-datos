@@ -41,5 +41,23 @@ public abstract class ProcesamientoFichero implements IProcesamientoFichero {
 		} 
 		
 	}
+	
+	public boolean crearFichero(String nombre) throws IOException  {
+		
+		File f = new File (nombre);
+		if (!f.exists()) {
+			if (!f.createNewFile())
+			{
+				System.out.println ("No se ha podido crear el fichero " + nombre);
+				return false;
+			}else
+				return true;
+		}
+		else {
+			System.out.println("El fichero " + nombre + " ya existe");
+			return false;
+		}
+		
+	}
 
 }

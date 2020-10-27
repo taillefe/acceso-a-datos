@@ -12,7 +12,7 @@ public class Personaje {
 	public Personaje() {
 		
 	}
-	public Personaje(String nombre, TipoImportancia Importancia) {
+	public Personaje(String nombre, TipoImportancia importancia) {
 		super();
 		this.nombre = nombre;
 		this.importancia = importancia;

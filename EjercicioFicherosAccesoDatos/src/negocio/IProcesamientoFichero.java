@@ -7,10 +7,10 @@ import modelo.Libro;
 
 public interface IProcesamientoFichero {
 	
-	public  List<Libro> leerFichero(String ruta);
+	public  List<Libro> leerFichero(String ruta) throws IOException, ClassNotFoundException;
 
 	
-	public   void guardarFichero( List<Libro> listaLibros, String ruta);
+	public   void guardarFichero( List<Libro> listaLibros, String ruta) throws IOException;
 
 
 }
