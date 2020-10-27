@@ -19,13 +19,13 @@ public class EjercicioLibros {
 		IProcesamientoFichero procPlano= new ProcesamientoFicheroPlano();
 		IProcesamientoFichero procObjetos= new ProcesamientoFicheroObjetos();
 		
-	//	if (proc.existeFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libros.txt"))
+	//	if (procPlano.existeFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libros.txt"))
 		{
 			try {
 					listadoLibrosPlano =  procPlano.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libros.txt");
 					procPlano.guardarFichero(listadoLibrosPlano,"C:\\Users\\PC33\\Desktop\\Prueba\\libros2.txt");
-		//			procObjetos.guardarFichero(listadoLibrosPlano,"C:\\Users\\PC33\\Desktop\\Prueba\\librosobj.txt");
-		//			listadoLibrosObjeto =  procObjetos.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\librosobj.txt");
+					procObjetos.guardarFichero(listadoLibrosPlano,"C:\\Users\\PC33\\Desktop\\Prueba\\librosobj.txt");
+		   		listadoLibrosObjeto =  procObjetos.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\librosobj.txt");
 					
 					System.out.println ("listadoLibrosObjeto : " +listadoLibrosObjeto);
 					System.out.println("listadoLibrosPlano : "+ listadoLibrosPlano);

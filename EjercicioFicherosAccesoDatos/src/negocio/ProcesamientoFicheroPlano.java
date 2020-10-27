@@ -131,7 +131,8 @@ public class ProcesamientoFicheroPlano extends ProcesamientoFichero{
 	
 		String nombre;
 		Personaje.TipoImportancia importanciaString;
-		String personajes;
+		String personajes = null;
+		String libros = null;
 
 		FileWriter fw = new FileWriter(ruta);
 		BufferedWriter bfw = new BufferedWriter (fw);
@@ -154,11 +155,13 @@ public class ProcesamientoFicheroPlano extends ProcesamientoFichero{
 				nombre = p.getNombre();
 				importanciaString = p.getImportancia();
 				// crear la cadena de personajes
-				personaje
+				personajes = personajes + "-" + nombre + "," + importanciaString;
 			}
-			
-			 bfw.write(l + "\n");
-	    	System.out.println("escribir libros : " + l);
+			libros = titulo + ";" +editorial +";" + autor +";" +fecha +";"+genero +";"+ personajes;
+			 bfw.write(libros + "\n");
+			 personajes = "";
+			 libros = "";
+	    	System.out.println("escribir libros : " + libros);
 	    	
 		}	
 	    bfw.close();

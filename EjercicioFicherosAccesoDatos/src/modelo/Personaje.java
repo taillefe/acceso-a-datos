@@ -1,6 +1,8 @@
 package modelo;
 
-public class Personaje {
+import java.io.Serializable;
+
+public class Personaje implements Serializable{
 	
 
 	String nombre;
