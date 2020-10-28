@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import modelo.Personaje;
+import persona.Persona;
 import modelo.Libro;
 
 public class ProcesamientoFicheroObjetos extends ProcesamientoFichero{
@@ -40,10 +41,20 @@ public class ProcesamientoFicheroObjetos extends ProcesamientoFichero{
 		ObjectInputStream ois = new ObjectInputStream(fis);
 
 		//  de esta forma leemos el fichero como un todo y lo devolvemos en un arraylist
+		//	listaLibros = (ArrayList<Libro>) ois.readObject();
 		
-		listaLibros = (ArrayList<Libro>) ois.readObject();
-		ois.close();
-		return listaLibros;
+		try
+		{
+			while (true) { 	
+				listaLibros.add((Libro) ois.readObject());
+				System.out.println("leer lista : " + listaLibros);
+				
+			}
+		}catch(EOFException e){
+			// cuando da error de lectura de fin de fichero, salir
+			ois.close();
+			return listaLibros;
+		}
 	/*	
 		try {
 			//while (fis.available() != 0)	{

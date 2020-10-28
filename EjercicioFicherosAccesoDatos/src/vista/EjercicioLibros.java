@@ -20,12 +20,14 @@ public class EjercicioLibros {
 		IProcesamientoFichero procObjetos= new ProcesamientoFicheroObjetos();
 		
 	//	if (procPlano.existeFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libros.txt"))
-		{
+//		{
 			try {
 					listadoLibrosPlano =  procPlano.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libros.txt");
 					procPlano.guardarFichero(listadoLibrosPlano,"C:\\Users\\PC33\\Desktop\\Prueba\\libros2.txt");
 					procObjetos.guardarFichero(listadoLibrosPlano,"C:\\Users\\PC33\\Desktop\\Prueba\\librosobj.txt");
-		   		listadoLibrosObjeto =  procObjetos.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\librosobj.txt");
+					listadoLibrosObjeto =  procObjetos.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\librosobj.txt");
+					
+					
 					
 					System.out.println ("listadoLibrosObjeto : " +listadoLibrosObjeto);
 					System.out.println("listadoLibrosPlano : "+ listadoLibrosPlano);
@@ -37,7 +39,7 @@ public class EjercicioLibros {
 					e.printStackTrace();
 				}
 		
-		}
+//		}
 /*		else
 		{
 			System.out.println("El fichero " + "libros.txt" + "no existe");
