@@ -99,11 +99,13 @@ public class ProcesamientoFicheroXMLDOM extends ProcesamientoFichero{
 				
 				// repetir este procedimiento hasta que se lean todos los nodos personaje
 				//como ???
-				while (( elPers.getElementsByTagName("personaje")
-						.item(0) ) != null)//(el elemento sea personaje) 
-					{
+		//		while (( elPers.getElementsByTagName("personaje")
+		//				.item(0) ) != )//(el elemento sea personaje) 
+		//			{
 	//				if (elPers != null) {
+					
 						Element elPer =(Element) elPers.getElementsByTagName("personaje").item(0);
+						System.out.println("elPer : "+ elPer);
 						
 						nombre = elPer.getElementsByTagName("nombre")
 								.item(0).getChildNodes().item(0).getNodeValue();
@@ -114,7 +116,7 @@ public class ProcesamientoFicheroXMLDOM extends ProcesamientoFichero{
 						
 						listaPersonajes.add((Personaje) new Personaje(nombre,importancia));
 		//			}
-				}	
+			//	}	
 				// creo un libro con los datos obtenidos y lo añado a la lista
 				// para cada libro dentro del xml
 				Libro l = new Libro(titulo, editorial, autor, fecha, genero, listaPersonajes);
