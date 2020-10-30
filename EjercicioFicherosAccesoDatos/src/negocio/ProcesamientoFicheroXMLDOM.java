@@ -60,10 +60,10 @@ public class ProcesamientoFicheroXMLDOM extends ProcesamientoFichero{
 		Document document = builder.parse(new File(ruta));
 		
 		//Obtencion de los nodos (<  >) del documento
-		NodeList nodeList = document.getDocumentElement().getChildNodes();
+		NodeList nodeListLibros = document.getDocumentElement().getChildNodes();
 		
 		//Se recorren los nodos
-		for (int i = 0; i < nodeList.getLength(); i++) {
+		for (int i = 0; i < nodeListLibros.getLength(); i++) {
 			titulo = "";
 			editorial = "";
 			autor = "";
@@ -74,7 +74,7 @@ public class ProcesamientoFicheroXMLDOM extends ProcesamientoFichero{
 			nombre ="";
 			importanciaString ="";
 			
-			Node node =  nodeList.item(i);
+			Node node =  nodeListLibros.item(i);
 			
 			if (node.getNodeType() == Node.ELEMENT_NODE) { //Si el nodo es un elemento DOM
 				Element elLibro = (Element) node;
@@ -94,17 +94,26 @@ public class ProcesamientoFicheroXMLDOM extends ProcesamientoFichero{
 				}
 				genero = elLibro.getElementsByTagName("genero")
 						.item(0).getChildNodes().item(0).getNodeValue();
-				//personajes tiene estructura de arbol tambien
-				Element elPers =(Element) elLibro.getElementsByTagName("personajes").item(0);
 				
-				// repetir este procedimiento hasta que se lean todos los nodos personaje
-				//como ???
-		//		while (( elPers.getElementsByTagName("personaje")
-		//				.item(0) ) != )//(el elemento sea personaje) 
-		//			{
-	//				if (elPers != null) {
+				
+				
+				
+				//Obtencion de los nodos (<Personajes>) del documento
+				NodeList nodeListPersonajes =  ((Element)elLibro.getElementsByTagName("personajes").item(0)).getChildNodes();
+				
+				//Se recorren los nodos
+				for (int j = 0; j < nodeListPersonajes.getLength(); j++) {
+					personajes = "";
+					personaje = "";
+					nombre ="";
+					importanciaString ="";
 					
-						Element elPer =(Element) elPers.getElementsByTagName("personaje").item(0);
+					Node nodePers =  nodeListPersonajes.item(j);
+					
+					if (nodePers.getNodeType() == Node.ELEMENT_NODE) { //Si el nodo es un elemento DOM
+						Element elPer = (Element) nodePers;
+				
+						//Element elPer =(Element) elPers.getElementsByTagName("personaje").item(0);
 						System.out.println("elPer : "+ elPer);
 						
 						nombre = elPer.getElementsByTagName("nombre")
@@ -115,12 +124,15 @@ public class ProcesamientoFicheroXMLDOM extends ProcesamientoFichero{
 						 importancia =Personaje.TipoImportancia.valueOf(importanciaString.toUpperCase());
 						
 						listaPersonajes.add((Personaje) new Personaje(nombre,importancia));
-		//			}
-			//	}	
+					}
+				}	
+				
+				
 				// creo un libro con los datos obtenidos y lo añado a la lista
 				// para cada libro dentro del xml
 				Libro l = new Libro(titulo, editorial, autor, fecha, genero, listaPersonajes);
 				listaLibros.add(l);
+				listaPersonajes = new ArrayList<Personaje>();
 			}//if Node.ELEMENT_NODE
 			
 		}//for

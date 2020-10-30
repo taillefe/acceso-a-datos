@@ -63,7 +63,7 @@ public class ProcesamientoFicheroPlano extends ProcesamientoFichero{
 					editorial = partesLibro[1];
 					autor = partesLibro[2];
 			
-					fecha = LocalDate.parse(partesLibro[3], DateTimeFormatter.ofPattern("dd/MM/yyyy")); 
+					fecha = LocalDate.parse(partesLibro[3], DateTimeFormatter.ofPattern("d/M/yyyy")); 
 					genero = partesLibro[4];
 					
 					
@@ -157,7 +157,7 @@ public class ProcesamientoFicheroPlano extends ProcesamientoFichero{
 				// crear la cadena de personajes
 				personajes = personajes + "-" + nombre + "," + importanciaString;
 			}
-			libros = titulo + ";" +editorial +";" + autor +";" +fecha +";"+genero +";"+ personajes;
+			libros = titulo + ";" +editorial +";" + autor +";" +fecha.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) +";"+genero +";"+ personajes;
 			 bfw.write(libros + "\n");
 			 personajes = "";
 			 libros = "";
