@@ -41,7 +41,8 @@ public class ParseadorLibrosSAX extends DefaultHandler{
 	
 	@Override
 	public void startDocument() throws SAXException {
-		listadoLibros = new ArrayList<Libro>();
+		listadoLibros = new ArrayList<Libro>(); // creo el listado de los libros
+	
 	
 	}
 	
@@ -51,9 +52,10 @@ public class ParseadorLibrosSAX extends DefaultHandler{
 			switch(tiposNodo.valueOf(localName.toUpperCase())) {
 			case LIBRO:
 				libro = new Libro();
+				listadoPersonajes = new ArrayList<Personaje>();//creo el listado de personajes aqui para cada libro
 				break;
-			case PERSONAJE:
-				//personaje = new Personaje();
+			case PERSONAJES:
+				personaje = new Personaje(); // creo el personaje
 				break;
 			}
 	
