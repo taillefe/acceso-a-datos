@@ -10,6 +10,7 @@ public class Personaje implements Serializable{
 
 	String nombre;
 	TipoImportancia importancia;
+	
 	public enum TipoImportancia {
 		PRINCIPAL, SECUNDARIO, RECURRENTE;
 	}

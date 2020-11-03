@@ -7,6 +7,8 @@ import javax.xml.bind.annotation.XmlType;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import modelo.Personaje.TipoImportancia;
+
 
 public class PersonajeGSON implements Serializable{
 	
@@ -15,9 +17,10 @@ public class PersonajeGSON implements Serializable{
 	@Expose String nombre;
 	@SerializedName("importancia")
 	@Expose	TipoImportancia importancia;
-	public enum TipoImportancia {
-		PRINCIPAL, SECUNDARIO, RECURRENTE;
-	}
+	
+//	public enum TipoImportancia {
+//		PRINCIPAL, SECUNDARIO, RECURRENTE;
+//	}
 
 	public PersonajeGSON() {
 		

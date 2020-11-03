@@ -18,20 +18,26 @@ import com.google.gson.GsonBuilder;
 import modelo.Libro;
 import modelo.LibroGSON;
 
+import Utilidades;
+
+
 public class ProcesamientoFicheroJSONGSON extends ProcesamientoFichero {
 
 	@Override
 	public List<Libro> leerFichero(String ruta) throws IOException, ClassNotFoundException,
 			ParserConfigurationException, SAXException, JAXBException, TransformerException {
-
+		
+		ArrayList<Libro> listaLibros = new ArrayList<Libro>();
 		// solo importa los datos que tienen @Expose, puede interesar no exportar o importar algunos datos
 		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create(); 
 		FileReader fr = new FileReader(ruta);
 		LibroGSON[] libros = gson.fromJson(fr, LibroGSON[].class);
 		
 		//debo mapear libroGSON en libro para devolverlo en ese tipo
+		Utilidades util = new Utilidades();
 		
-		return new ArrayList<Libro>(Arrays.asList(libros));
+		listaLibros = ((Object) util).mapearLibroGSONALibro(Arrays.asList(libros));
+		return listaLibros;
 	}
 
 
