@@ -54,7 +54,7 @@ public class ParseadorLibrosSAX extends DefaultHandler{
 				libro = new Libro();
 				listadoPersonajes = new ArrayList<Personaje>();//creo el listado de personajes aqui para cada libro
 				break;
-			case PERSONAJES:
+			case PERSONAJE:
 				personaje = new Personaje(); // creo el personaje
 				break;
 			}
@@ -85,6 +85,8 @@ public class ParseadorLibrosSAX extends DefaultHandler{
 				libro.setGenero(valorElemento);
 				break;
 			case PERSONAJES:
+				libro.setPersonajes(listadoPersonajes);
+				break;
 			case PERSONAJE:
 				listadoPersonajes.add(personaje);
 				break;

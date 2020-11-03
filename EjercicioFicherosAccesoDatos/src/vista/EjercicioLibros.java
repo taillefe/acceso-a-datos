@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
@@ -16,6 +17,7 @@ import negocio.ProcesamientoFicheroPlano;
 import negocio.ProcesamientoFicheroSAX;
 import negocio.ProcesamientoFicheroObjetos;
 import negocio.ProcesamientoFicheroXMLDOM;
+import negocio.ProcesamientoFicheroXMLJAXB;
 public class EjercicioLibros {
 
 	public static void main(String[] args)  {
@@ -24,40 +26,59 @@ public class EjercicioLibros {
 		List<Libro> listadoLibrosObjeto = null;
 		List<Libro> listadoLibrosXMLDOM = null;
 		List<Libro> listadoLibrosSAX = null;
+		List<Libro> listadoLibrosXMLJAXB = null;
+		
 	//	ProcesamientoFichero proc= new ProcesamientoFichero();
 		IProcesamientoFichero procPlano= new ProcesamientoFicheroPlano();
 		IProcesamientoFichero procObjetos= new ProcesamientoFicheroObjetos();
 		IProcesamientoFichero procXMLDOM= new ProcesamientoFicheroXMLDOM();
+		IProcesamientoFichero procXMLJAXB= new ProcesamientoFicheroXMLJAXB();
 		IProcesamientoFichero procSAX= new ProcesamientoFicheroSAX();
 	//	if (procPlano.existeFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libros.txt"))
 //		{
 			try {
-		//	 		listadoLibrosPlano =  procPlano.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libros.txt");
+			 //		listadoLibrosPlano =  procPlano.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libros.txt");
 			//		procPlano.guardarFichero(listadoLibrosPlano,"C:\\Users\\PC33\\Desktop\\Prueba\\libros2.txt");
 			//		procObjetos.guardarFichero(listadoLibrosPlano,"C:\\Users\\PC33\\Desktop\\Prueba\\librosobj.txt");
 			//		listadoLibrosObjeto =  procObjetos.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\librosobj.txt");
 			//		procXMLDOM.guardarFichero(listadoLibrosPlano,"C:\\Users\\PC33\\Desktop\\Prueba\\libroxmldom.txt");
 			//		listadoLibrosXMLDOM =  procXMLDOM.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libroxmldom.txt");
-				listadoLibrosSAX =  procSAX.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libroxmldom.txt");
+			//	listadoLibrosSAX =  procSAX.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libroxmldom.txt");
+				listadoLibrosXMLJAXB =  procXMLJAXB.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libroxmldom.txt");
+				procXMLJAXB.guardarFichero(listadoLibrosXMLJAXB,"C:\\Users\\PC33\\Desktop\\Prueba\\libroxmljaxb.txt");
 					
 				//	System.out.println ("listadoLibrosObjeto : " +listadoLibrosObjeto);
-					System.out.println("listadoLibrosSAX : "+ listadoLibrosXMLDOM);
+					System.out.println("listadoLibrosXMLJAXB : "+ listadoLibrosXMLJAXB);
 				}catch (IOException e) {
 					
 					e.printStackTrace();
 				} catch (ParserConfigurationException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-		//		} catch (TransformerException e) {
-					// TODO Auto-generated catch block
-			//		e.printStackTrace();
+		
+				
+					
+					
 				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
+				// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (SAXException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
+				} catch (JAXBException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (TransformerException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					
+					
+					
+					
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		
 //		}
 /*		else

@@ -1,17 +1,25 @@
 package modelo;
 
+import modelo.LocalDateAdapter;
 import java.io.Serializable;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapters;
 import java.time.LocalDate;
 import java.util.List;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 public class Libro implements Serializable{
 	
 	String titulo;
 	String editorial;
 	String autor;
+	
 	LocalDate fecha;
 	String genero;
-	List<Personaje> personajes;
+
+	private List<Personaje> personajes;
 	
 	public Libro() {
 		
@@ -28,10 +36,11 @@ public class Libro implements Serializable{
 		this.personajes = personajes;
 	}
 
+	
 	public String getTitulo() {
 		return titulo;
 	}
-
+	
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
@@ -52,6 +61,7 @@ public class Libro implements Serializable{
 		this.autor = autor;
 	}
 
+	@XmlJavaTypeAdapter(value = LocalDateAdapter.class)
 	public LocalDate getFecha() {
 		return fecha;
 	}
@@ -67,7 +77,9 @@ public class Libro implements Serializable{
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
-
+	
+	@XmlElementWrapper(name="personajes")
+    @XmlElement(name="personaje")
 	public List<Personaje> getPersonajes() {
 		return personajes;
 	}
