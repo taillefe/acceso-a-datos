@@ -4,20 +4,25 @@ import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlType;
 
-@XmlType(propOrder={"nombre", "importancia" })
-public class Personaje implements Serializable{
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+
+public class PersonajeGSON implements Serializable{
 	
 
-	String nombre;
-	TipoImportancia importancia;
+	@SerializedName("nombre")
+	@Expose String nombre;
+	@SerializedName("importancia")
+	@Expose	TipoImportancia importancia;
 	public enum TipoImportancia {
 		PRINCIPAL, SECUNDARIO, RECURRENTE;
 	}
 
-	public Personaje() {
+	public PersonajeGSON() {
 		
 	}
-	public Personaje(String nombre, TipoImportancia importancia) {
+	public PersonajeGSON(String nombre, TipoImportancia importancia) {
 		super();
 		this.nombre = nombre;
 		this.importancia = importancia;

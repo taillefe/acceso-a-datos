@@ -46,7 +46,7 @@ public abstract class ProcesamientoFichero implements IProcesamientoFichero {
 		
 		File f = new File (nombre);
 		if (!f.exists()) {
-			if (!f.createNewFile())
+			if (!f.createNewFile()	)
 			{
 				System.out.println ("No se ha podido crear el fichero " + nombre);
 				return false;

@@ -45,7 +45,7 @@ public class ProcesamientoFicheroObjetos extends ProcesamientoFichero{
 		
 		try
 		{
-			//while (fis.available() != 0)	{
+		
 			while (true) { 	
 				listaLibros.add((Libro) ois.readObject());
 				System.out.println("leer lista : " + listaLibros);

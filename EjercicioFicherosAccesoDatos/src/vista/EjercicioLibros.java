@@ -55,10 +55,7 @@ public class EjercicioLibros {
 				} catch (ParserConfigurationException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-		
-				
-					
-					
+	
 				} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -71,13 +68,7 @@ public class EjercicioLibros {
 				} catch (TransformerException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-					
-					
-					
-					
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+
 			}
 		
 //		}
