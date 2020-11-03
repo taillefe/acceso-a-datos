@@ -39,6 +39,8 @@ public class Utilidades {
 			
 			libro.setPersonajes(listaPersonajes);				
 			listaLibros.add(libro);
+			// inicializar la listaPersonajes para el siguiente libro
+			listaPersonajes = new ArrayList<Personaje>();
 		
 		}
 		return listaLibros;
@@ -74,6 +76,8 @@ public class Utilidades {
 				
 				libroGSON.setPersonajes(listaPersonajesGSON);				
 				listaLibrosGSON.add(libroGSON);
+				// inicializar la listaPersonajesGSON para el siguiente libro
+				listaPersonajesGSON = new ArrayList<PersonajeGSON>();
 			
 			}
 			return listaLibrosGSON;
