@@ -31,7 +31,7 @@ public class EjercicioLibros {
 
 	
 	public static void main(String[] args)  {
-		System.out.println ("ejecutando : ");
+	
 	
 		List<Libro> listadoLibrosPlano = null;
 		List<Libro> listadoLibrosObjeto = null;
