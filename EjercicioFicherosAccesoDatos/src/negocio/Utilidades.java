@@ -18,7 +18,7 @@ public class Utilidades {
 		List<Personaje> listaPersonajes = new ArrayList<Personaje>();
 		Personaje personaje = new Personaje();
 		
-	
+		
 		for (LibroGSON l : listaLibrosGSON) {
 		
 			libro.setTitulo(l.getTitulo());

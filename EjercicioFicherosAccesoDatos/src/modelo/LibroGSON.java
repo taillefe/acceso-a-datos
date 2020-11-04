@@ -89,7 +89,7 @@ public class LibroGSON implements Serializable{
 		return fecha;
 	}
 
-	
+	@XmlJavaTypeAdapter(value = LocalDateAdapter.class)
 	public void setFecha(LocalDate fecha) {
 		this.fecha = fecha;
 	}

@@ -56,46 +56,46 @@ public class EjercicioLibros {
 		// lee el fichero ejemplo de la lista de libros (libros.txt) devuelve una lista de libros en la variable listadoLibrosPlano
 		// y lo guarda de nuevo, con el mismo formato en otro fichero (libros2.txt)
 				
-			 		listadoLibrosPlano =  procPlano.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libros.txt");
-			//		procPlano.guardarFichero(listadoLibrosPlano,"C:\\Users\\PC33\\Desktop\\Prueba\\libros2.txt");
+			 		listadoLibrosPlano =  procPlano.leerFichero("prueba\\libros.txt");
+			//		procPlano.guardarFichero(listadoLibrosPlano,"prueba\\libros2.txt");
 			 		
 		// APARTADO 3 ProcesamientoFicheroObjetos, 
 		// guarda la lista de libros obtenida con ProcesamientoFicheroPlano en un fichero binario (librosobj.txt)
 		// y lee el fichero binario (librosobj.txt) y devuelve una lista en listadoLibrosObjeto
 				
 				
-			//		procObjetos.guardarFichero(listadoLibrosPlano,"C:\\Users\\PC33\\Desktop\\Prueba\\librosobj.txt");
-			//		listadoLibrosObjeto =  procObjetos.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\librosobj.txt");
+			//		procObjetos.guardarFichero(listadoLibrosPlano,"prueba\\librosobj.txt");
+			//		listadoLibrosObjeto =  procObjetos.leerFichero("prueba\\librosobj.txt");
 			
 		// APARTADO 4 ProcesamientoFicheroXMLDOM, 
 		// guarda la lista de libros obtenida con ProcesamientoFicheroPlano en un fichero XML (libroxmldom.txt)
 		// y lee el fichero xml (libroxmldom.txt) y devuelve una lista en listadoLibrosXMLDOM
 			
 				
-			//		procXMLDOM.guardarFichero(listadoLibrosPlano,"C:\\Users\\PC33\\Desktop\\Prueba\\libroxmldom.txt");
-			//		listadoLibrosXMLDOM =  procXMLDOM.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libroxmldom.txt");
+			//		procXMLDOM.guardarFichero(listadoLibrosPlano,"prueba\\libroxmldom.txt");
+			//		listadoLibrosXMLDOM =  procXMLDOM.leerFichero("prueba\\libroxmldom.txt");
 				
 		// APARTADO 5 ProcesamientoFicheroXMLJAXB, 
 		// guarda la lista de libros obtenida con ProcesamientoFicheroPlano en un fichero XML (libroxmljaxb.txt)
 		// y lee el fichero xml (libroxmljaxb.txt) y devuelve una lista en listadoLibrosXMLJAXB
 				
 				
-		//		procXMLJAXB.guardarFichero(listadoLibrosPlano,"C:\\Users\\PC33\\Desktop\\Prueba\\libroxmljaxb.txt");
-		//		listadoLibrosXMLJAXB =  procXMLJAXB.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libroxmljaxb.txt");
+		//		procXMLJAXB.guardarFichero(listadoLibrosPlano,"prueba\\libroxmljaxb.txt");
+		//		listadoLibrosXMLJAXB =  procXMLJAXB.leerFichero("prueba\\libroxmljaxb.txt");
 				
 
 		// APARTADO 6 ProcesamientoFicheroJSONGSON, 
 		// guarda la lista de libros obtenida con ProcesamientoFicheroPlano en un fichero (librojsongson.txt)
 		// y lee el fichero (librojsongson.txt) y devuelve una lista en listadoLibrosJSONGSON
 				
-				procJSONGSON.guardarFichero(listadoLibrosPlano,"C:\\Users\\PC33\\Desktop\\Prueba\\librojsongson.txt");
-				listadoLibrosJSONGSON =  procJSONGSON.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\librojsongson.txt");
+				procJSONGSON.guardarFichero(listadoLibrosPlano,"prueba\\librojsongson.txt");
+				listadoLibrosJSONGSON =  procJSONGSON.leerFichero("prueba\\librojsongson.txt");
 				
 		// APARTADO 8 ProcesamientoFicheroSAX, 
 		// lee el fichero xml (libroxmldom.txt) y devuelve una lista en listadoLibrosSAX 
 		
 				
-				//	listadoLibrosSAX =  procSAX.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libroxmldom.txt");
+				//	listadoLibrosSAX =  procSAX.leerFichero("prueba\\libroxmldom.txt");
 					
 				
 			// visualiza por pantalla las listas generadas en las lecturas de ficheros de los diferente procesos	
