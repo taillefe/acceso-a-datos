@@ -13,13 +13,23 @@ import org.xml.sax.SAXException;
 import modelo.Libro;
 import negocio.IProcesamientoFichero;
 import negocio.ProcesamientoFichero;
+import negocio.ProcesamientoFicheroJSONGSON;
 import negocio.ProcesamientoFicheroPlano;
 import negocio.ProcesamientoFicheroSAX;
 import negocio.ProcesamientoFicheroObjetos;
 import negocio.ProcesamientoFicheroXMLDOM;
 import negocio.ProcesamientoFicheroXMLJAXB;
+
+
+/**
+ * 
+ * @author laura garcia
+ * programa que ejecuta los diferentes procesamientos de ficheros 
+ *
+ */
 public class EjercicioLibros {
 
+	
 	public static void main(String[] args)  {
 	
 		List<Libro> listadoLibrosPlano = null;
@@ -27,6 +37,7 @@ public class EjercicioLibros {
 		List<Libro> listadoLibrosXMLDOM = null;
 		List<Libro> listadoLibrosSAX = null;
 		List<Libro> listadoLibrosXMLJAXB = null;
+		List<Libro> listadoLibrosJSONGSON = null;
 		
 	//	ProcesamientoFichero proc= new ProcesamientoFichero();
 		IProcesamientoFichero procPlano= new ProcesamientoFicheroPlano();
@@ -34,21 +45,69 @@ public class EjercicioLibros {
 		IProcesamientoFichero procXMLDOM= new ProcesamientoFicheroXMLDOM();
 		IProcesamientoFichero procXMLJAXB= new ProcesamientoFicheroXMLJAXB();
 		IProcesamientoFichero procSAX= new ProcesamientoFicheroSAX();
+		IProcesamientoFichero procJSONGSON= new ProcesamientoFicheroJSONGSON();
 	//	if (procPlano.existeFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libros.txt"))
 //		{
 			try {
-			 //		listadoLibrosPlano =  procPlano.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libros.txt");
+		// APARTADO 2 ProcesamientoFicheroPlano, 
+		// lee el fichero ejemplo de la lista de libros (libros.txt) devuelve una lista de libros en la variable listadoLibrosPlano
+		// y lo guarda de nuevo, con el mismo formato en otro fichero (libros2.txt)
+				
+			 		listadoLibrosPlano =  procPlano.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libros.txt");
 			//		procPlano.guardarFichero(listadoLibrosPlano,"C:\\Users\\PC33\\Desktop\\Prueba\\libros2.txt");
+			 		
+		// APARTADO 3 ProcesamientoFicheroObjetos, 
+		// guarda la lista de libros obtenida con ProcesamientoFicheroPlano en un fichero binario (librosobj.txt)
+		// y lee el fichero binario (librosobj.txt) y devuelve una lista en listadoLibrosObjeto
+				
+				
 			//		procObjetos.guardarFichero(listadoLibrosPlano,"C:\\Users\\PC33\\Desktop\\Prueba\\librosobj.txt");
 			//		listadoLibrosObjeto =  procObjetos.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\librosobj.txt");
+			
+		// APARTADO 4 ProcesamientoFicheroXMLDOM, 
+		// guarda la lista de libros obtenida con ProcesamientoFicheroPlano en un fichero XML (libroxmldom.txt)
+		// y lee el fichero xml (libroxmldom.txt) y devuelve una lista en listadoLibrosXMLDOM
+			
+				
 			//		procXMLDOM.guardarFichero(listadoLibrosPlano,"C:\\Users\\PC33\\Desktop\\Prueba\\libroxmldom.txt");
 			//		listadoLibrosXMLDOM =  procXMLDOM.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libroxmldom.txt");
-			//	listadoLibrosSAX =  procSAX.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libroxmldom.txt");
-				listadoLibrosXMLJAXB =  procXMLJAXB.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libroxmldom.txt");
-				procXMLJAXB.guardarFichero(listadoLibrosXMLJAXB,"C:\\Users\\PC33\\Desktop\\Prueba\\libroxmljaxb.txt");
+				
+		// APARTADO 5 ProcesamientoFicheroXMLJAXB, 
+		// guarda la lista de libros obtenida con ProcesamientoFicheroPlano en un fichero XML (libroxmljaxb.txt)
+		// y lee el fichero xml (libroxmljaxb.txt) y devuelve una lista en listadoLibrosXMLJAXB
+				
+				
+				procXMLJAXB.guardarFichero(listadoLibrosPlano,"C:\\Users\\PC33\\Desktop\\Prueba\\libroxmljaxb.txt");
+				listadoLibrosXMLJAXB =  procXMLJAXB.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libroxmljaxb.txt");
+				
+
+		// APARTADO 6 ProcesamientoFicheroJSONGSON, 
+		// guarda la lista de libros obtenida con ProcesamientoFicheroPlano en un fichero (librojsongson.txt)
+		// y lee el fichero (librojsongson.txt) y devuelve una lista en listadoLibrosJSONGSON
+				
+				procJSONGSON.guardarFichero(listadoLibrosPlano,"C:\\Users\\PC33\\Desktop\\Prueba\\librojsongson.txt");
+				listadoLibrosJSONGSON =  procJSONGSON.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\librojsongson.txt");
+				
+		// APARTADO 8 ProcesamientoFicheroSAX, 
+		// lee el fichero xml (libroxmldom.txt) y devuelve una lista en listadoLibrosSAX 
+		
+				
+				//	listadoLibrosSAX =  procSAX.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libroxmldom.txt");
 					
-				//	System.out.println ("listadoLibrosObjeto : " +listadoLibrosObjeto);
-					System.out.println("listadoLibrosXMLJAXB : "+ listadoLibrosXMLJAXB);
+				
+			// visualiza por pantalla las listas generadas en las lecturas de ficheros de los diferente procesos	
+					System.out.println ("listadoLibrosPlano : " +listadoLibrosPlano);
+					System.out.println("listadoLibrosObjeto : "+ listadoLibrosObjeto);
+					System.out.println ("listadoLibrosXMLDOM : " +listadoLibrosXMLDOM);
+					System.out.println("listadoLibrosXMLJASB : "+ listadoLibrosXMLJAXB);
+					
+					System.out.println ("listadoLibrosJSONGSON : " +listadoLibrosJSONGSON);
+					System.out.println("listadoLibrosSAX : "+ listadoLibrosSAX);
+					
+					
+				//en los sucesivos catch se gestionan todas las excepciones de todos los procesos que se han ejecutado
+				// en este programa principal
+					
 				}catch (IOException e) {
 					
 					e.printStackTrace();

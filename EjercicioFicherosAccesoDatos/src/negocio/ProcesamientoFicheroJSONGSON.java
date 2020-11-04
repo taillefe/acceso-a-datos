@@ -1,6 +1,7 @@
 package negocio;
 
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -45,12 +46,20 @@ public class ProcesamientoFicheroJSONGSON extends ProcesamientoFichero {
 	public void guardarFichero(List<Libro> listaLibros, String ruta)
 			throws IOException, ParserConfigurationException, TransformerException, JAXBException {
 		
+		ArrayList<LibroGSON> listaLibrosGSON = new ArrayList<LibroGSON>();
+		
 		// solo exporta los datos que tienen @Expose, puede interesar no exportar o importar algunos datos
 		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
 		// hay que mapear los datos de listaLibros en listaLibrosGSON (de la clase LibroGSON)
 		
-		
+		listaLibrosGSON = mapearLibroALibroGSON(listalibros);
 		String json = gson.toJson(listaLibrosGSON);
+		//escribir en el fichero el String json
+		FileWriter fw = new FileWriter(ruta);
+		fw.write(json);
+		fw.flush();
+		fw.close();
+		
 		
 	}
 	
