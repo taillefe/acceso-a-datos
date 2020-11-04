@@ -31,6 +31,7 @@ public class EjercicioLibros {
 
 	
 	public static void main(String[] args)  {
+		System.out.println ("ejecutando : ");
 	
 		List<Libro> listadoLibrosPlano = null;
 		List<Libro> listadoLibrosObjeto = null;
@@ -48,6 +49,8 @@ public class EjercicioLibros {
 		IProcesamientoFichero procJSONGSON= new ProcesamientoFicheroJSONGSON();
 	//	if (procPlano.existeFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libros.txt"))
 //		{
+		
+		System.out.println ("ejecutando : " +listadoLibrosPlano);
 			try {
 		// APARTADO 2 ProcesamientoFicheroPlano, 
 		// lee el fichero ejemplo de la lista de libros (libros.txt) devuelve una lista de libros en la variable listadoLibrosPlano
@@ -77,8 +80,8 @@ public class EjercicioLibros {
 		// y lee el fichero xml (libroxmljaxb.txt) y devuelve una lista en listadoLibrosXMLJAXB
 				
 				
-				procXMLJAXB.guardarFichero(listadoLibrosPlano,"C:\\Users\\PC33\\Desktop\\Prueba\\libroxmljaxb.txt");
-				listadoLibrosXMLJAXB =  procXMLJAXB.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libroxmljaxb.txt");
+		//		procXMLJAXB.guardarFichero(listadoLibrosPlano,"C:\\Users\\PC33\\Desktop\\Prueba\\libroxmljaxb.txt");
+		//		listadoLibrosXMLJAXB =  procXMLJAXB.leerFichero("C:\\Users\\PC33\\Desktop\\Prueba\\libroxmljaxb.txt");
 				
 
 		// APARTADO 6 ProcesamientoFicheroJSONGSON, 
@@ -96,13 +99,13 @@ public class EjercicioLibros {
 					
 				
 			// visualiza por pantalla las listas generadas en las lecturas de ficheros de los diferente procesos	
-					System.out.println ("listadoLibrosPlano : " +listadoLibrosPlano);
+				/*	System.out.println ("listadoLibrosPlano : " +listadoLibrosPlano);
 					System.out.println("listadoLibrosObjeto : "+ listadoLibrosObjeto);
 					System.out.println ("listadoLibrosXMLDOM : " +listadoLibrosXMLDOM);
 					System.out.println("listadoLibrosXMLJASB : "+ listadoLibrosXMLJAXB);
-					
+				*/	
 					System.out.println ("listadoLibrosJSONGSON : " +listadoLibrosJSONGSON);
-					System.out.println("listadoLibrosSAX : "+ listadoLibrosSAX);
+				//	System.out.println("listadoLibrosSAX : "+ listadoLibrosSAX);
 					
 					
 				//en los sucesivos catch se gestionan todas las excepciones de todos los procesos que se han ejecutado

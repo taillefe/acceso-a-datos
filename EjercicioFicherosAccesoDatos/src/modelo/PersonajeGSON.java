@@ -15,6 +15,7 @@ public class PersonajeGSON implements Serializable{
 
 	@SerializedName("nombre")
 	@Expose String nombre;
+	
 	@SerializedName("importancia")
 	@Expose	TipoImportancia importancia;
 	
