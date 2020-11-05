@@ -10,7 +10,13 @@ import org.xml.sax.SAXException;
 
 import modelo.Libro;
 
-
+/**
+ * 
+ * @author laura
+ * Interface de los procesamientos de Fichero que se usan en este proyecto
+ * 
+ *
+ */
 public interface IProcesamientoFichero {
 	
 	public  List<Libro> leerFichero(String ruta) throws IOException, ClassNotFoundException, ParserConfigurationException, SAXException, JAXBException, TransformerException;
