@@ -34,6 +34,11 @@ public abstract class ProcesamientoFichero implements IProcesamientoFichero {
 		
 	}
 	
+	/**
+	 * borrarFichero
+	 * @param ruta del fichero
+	 * @return true o false
+	 */
 	public boolean borrarFichero (String ruta) {
 		File f = new File (ruta);
 		if (f.exists()) {
@@ -55,6 +60,12 @@ public abstract class ProcesamientoFichero implements IProcesamientoFichero {
 		
 	}
 	
+	/**
+	 * crearFichero
+	 * @param nombre del fichero
+	 * @return true o false
+	 * @throws IOException
+	 */
 	public boolean crearFichero(String nombre) throws IOException  {
 		
 		File f = new File (nombre);

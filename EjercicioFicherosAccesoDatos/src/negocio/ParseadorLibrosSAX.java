@@ -1,5 +1,6 @@
 package negocio;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -48,7 +49,9 @@ public class ParseadorLibrosSAX extends DefaultHandler{
 	
 
 	/**
-	 * startDocument 
+	 * startDocument
+	 * @return void
+	 * @throws SAXException 
 	 */
 	@Override
 	public void startDocument() throws SAXException {
@@ -58,7 +61,10 @@ public class ParseadorLibrosSAX extends DefaultHandler{
 	}
 	
 	/**
-	 * startElement 
+	 * startElement
+	 * @param String uri, String localName, String qName, Attributes attributes
+	 * @return void
+	 * @throws SAXException 
 	 */
 	@Override
 	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
@@ -79,6 +85,10 @@ public class ParseadorLibrosSAX extends DefaultHandler{
 	
 	/**
 	 * endElement
+	 * @param String uri, String localName, String qName
+	 * @return void
+	 * @throws SAXException 
+	 * 
 	 */
 	@Override
 	public void endElement(String uri, String localName, String qName) throws SAXException {
@@ -120,6 +130,9 @@ public class ParseadorLibrosSAX extends DefaultHandler{
 	
 	/**
 	 * characters
+	 * @param char[] ch, int start, int length
+	 * @return void
+	 * @throws SAXException
 	 */
 	@Override
 	public void characters(char[] ch, int start, int length) throws SAXException {
