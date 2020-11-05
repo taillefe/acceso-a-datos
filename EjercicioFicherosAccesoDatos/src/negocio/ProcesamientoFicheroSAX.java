@@ -14,6 +14,16 @@ import org.xml.sax.helpers.XMLReaderFactory;
 
 import modelo.Libro;
 
+/**
+ * 
+ * @author laura
+ *	clase ProcesamientoFicheroSAX
+ *	En este caso solo lo hemos utilizado para leer un fichero XML
+ *  el método guardarFichero se hace referencia a él pero no se desarrolla
+ *  funciona como un analizador que genera una serie de eventos al tratar 
+ *  el documento, y esos eventos serán procesados por métodos
+ *
+ */
 public class ProcesamientoFicheroSAX extends ProcesamientoFichero{
 	
 	public List<Libro> leerFichero(String ruta) throws IOException, SAXException {

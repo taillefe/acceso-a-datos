@@ -19,7 +19,18 @@ import com.google.gson.GsonBuilder;
 import modelo.Libro;
 import modelo.LibroGSON;
 
-
+/**
+ * 
+ * @author laura
+ * clase ProcesamientoFicheroJSONGSON que hereda de ProcesamientoFichero
+ * define los métodos 
+ * -leerFichero al que se le pasa la ruta donde está el fichero y devuelve una lista
+ * de objetos Libro con los datos guardados en el fichero
+ * -guardarFichero se le pasa una lista de objetos Libro y la ruta del fichero donde
+ * deben guardarse los datos
+ * 
+ *
+ */
 public class ProcesamientoFicheroJSONGSON extends ProcesamientoFichero {
 
 	@Override

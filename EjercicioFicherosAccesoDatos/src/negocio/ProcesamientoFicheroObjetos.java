@@ -14,6 +14,11 @@ import modelo.Personaje;
 
 import modelo.Libro;
 
+/**
+ * 
+ * @author FP
+ *
+ */
 public class ProcesamientoFicheroObjetos extends ProcesamientoFichero{
 	
 	

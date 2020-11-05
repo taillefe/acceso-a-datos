@@ -10,7 +10,13 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import modelo.Libro;
 import modelo.Personaje;
-
+/**
+ * 
+ * @author laura
+ * clase usada en ProcesamientoFicheroSAX
+ * que define los métodos startDocument, startElement, endElement, characters
+ *	y obtenerResultado 
+ */
 public class ParseadorLibrosSAX extends DefaultHandler{
 	
 	private ArrayList<Libro> listadoLibros;

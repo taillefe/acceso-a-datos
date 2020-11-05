@@ -3,6 +3,15 @@ package negocio;
 import java.io.File;
 import java.io.IOException;
 
+
+/**
+ * 
+ * @author laura
+ * clase abstracta que implementa la interface IProcesamientoFichero
+ * defilne los métodos existeFichero, borrarFichero y crearFichero
+ *
+ */
+
 public abstract class ProcesamientoFichero implements IProcesamientoFichero {
 	
 	
