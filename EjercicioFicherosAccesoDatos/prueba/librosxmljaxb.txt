@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<libros>
+    <libro>
+        <titulo>Los pilares de la Tierra</titulo>
+        <editorial>Macmillan Publishers</editorial>
+        <autor>Kent Follet</autor>
+        <fecha>1989-05-21</fecha>
+        <genero>Novela HistÃ³rica</genero>
+        <personajes>
+            <personaje>
+                <nombre>Jack Jackson</nombre>
+                <importancia>PRINCIPAL</importancia>
+            </personaje>
+            <personaje>
+                <nombre>Philip</nombre>
+                <importancia>PRINCIPAL</importancia>
+            </personaje>
+            <personaje>
+                <nombre>Aliena</nombre>
+                <importancia>PRINCIPAL</importancia>
+            </personaje>
+            <personaje>
+                <nombre>Jack Shareburg</nombre>
+                <importancia>SECUNDARIO</importancia>
+            </personaje>
+        </personajes>
+    </libro>
+    <libro>
+        <titulo>El SeÃ±or de los anillos</titulo>
+        <editorial>Editorial</editorial>
+        <autor>Tolkien</autor>
+        <fecha>2989-05-01</fecha>
+        <genero>Novela</genero>
+        <personajes>
+            <personaje>
+                <nombre>Javier</nombre>
+                <importancia>PRINCIPAL</importancia>
+            </personaje>
+            <personaje>
+                <nombre>Pedro</nombre>
+                <importancia>SECUNDARIO</importancia>
+            </personaje>
+        </personajes>
+    </libro>
+</libros>

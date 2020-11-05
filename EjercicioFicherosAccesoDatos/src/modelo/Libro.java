@@ -71,7 +71,6 @@ public class Libro implements Serializable{
 	}
 
 	@XmlElement	
-	@XmlJavaTypeAdapter(value = LocalDateAdapter.class)
 	public void setFecha(LocalDate fecha) {
 		this.fecha = fecha;
 	}

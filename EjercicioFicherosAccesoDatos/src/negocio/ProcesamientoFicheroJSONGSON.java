@@ -34,7 +34,7 @@ public class ProcesamientoFicheroJSONGSON extends ProcesamientoFichero {
 		
 		//debo mapear libroGSON en libro para devolverlo en ese tipo
 		Utilidades util = new Utilidades();
-	//	System.out.println ("fecha : "+ Arrays.asList(libros));
+	
 		listaLibros = (ArrayList<Libro>)util.mapearlibroGSONALibro(Arrays.asList(libros));
 		
 		return listaLibros;
@@ -53,11 +53,9 @@ public class ProcesamientoFicheroJSONGSON extends ProcesamientoFichero {
 	
 		// hay que mapear los datos de listaLibros en listaLibrosGSON (de la clase LibroGSON)
 		listaLibrosGSON = (ArrayList<LibroGSON>) Utilidades.mapearlibroALibroGSON(listaLibros);
-		System.out.println ("fecha : "+ listaLibrosGSON);
-		
+				
 		String json = gson.toJson(listaLibrosGSON);
-		System.out.println ("String : "+ json);
-		
+				
 		//escribir en el fichero el String json
 		FileWriter fw = new FileWriter(ruta);
 		fw.write(json);

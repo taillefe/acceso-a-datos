@@ -79,7 +79,7 @@ public class ParseadorLibrosSAX extends DefaultHandler{
 				libro.setAutor(valorElemento);
 				break;
 			case FECHA:
-				libro.setFecha(LocalDate.parse(valorElemento, DateTimeFormatter.ofPattern("d/M/yyyy")));
+				libro.setFecha(LocalDate.parse(valorElemento, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 				break;
 			case GENERO:
 				libro.setGenero(valorElemento);

@@ -90,7 +90,7 @@ public class ProcesamientoFicheroXMLDOM extends ProcesamientoFichero{
 				if(( elLibro.getElementsByTagName("fecha")
 						.item(0) ) != null) {
 					fecha = LocalDate.parse(elLibro.getElementsByTagName("fecha").item(0).getChildNodes().item(0).getNodeValue(),
-							DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+							DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 				}
 				genero = elLibro.getElementsByTagName("genero")
 						.item(0).getChildNodes().item(0).getNodeValue();
@@ -114,8 +114,7 @@ public class ProcesamientoFicheroXMLDOM extends ProcesamientoFichero{
 						Element elPer = (Element) nodePers;
 				
 						//Element elPer =(Element) elPers.getElementsByTagName("personaje").item(0);
-						System.out.println("elPer : "+ elPer);
-						
+												
 						nombre = elPer.getElementsByTagName("nombre")
 								.item(0).getChildNodes().item(0).getNodeValue();
 						importanciaString = elPer.getElementsByTagName("importancia")
@@ -204,8 +203,6 @@ public class ProcesamientoFicheroXMLDOM extends ProcesamientoFichero{
 				personaje.appendChild(node);
 			
 			}
-			
-			
 			// al final, se asigna el nodo libro al nodo raiz (<libros>)
 			rootElement.appendChild(libro);
 		}//for
@@ -219,9 +216,7 @@ public class ProcesamientoFicheroXMLDOM extends ProcesamientoFichero{
 		StreamResult file = new StreamResult(new File(ruta));
 		
 		transformer.transform(source, file);
-		
-		
-		
+	
 		}
 
 }

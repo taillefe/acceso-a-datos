@@ -1,0 +1,44 @@
+[
+  {
+    "titulo": "Los pilares de la Tierra",
+    "editorial": "Macmillan Publishers",
+    "autor": "Kent Follet",
+    "fecha": {},
+    "genero": "Novela Histórica",
+    "personajes": [
+      {
+        "nombre": "Jack Jackson",
+        "importancia": "PRINCIPAL"
+      },
+      {
+        "nombre": "Philip",
+        "importancia": "PRINCIPAL"
+      },
+      {
+        "nombre": "Aliena",
+        "importancia": "PRINCIPAL"
+      },
+      {
+        "nombre": "Jack Shareburg",
+        "importancia": "SECUNDARIO"
+      }
+    ]
+  },
+  {
+    "titulo": "El Señor de los anillos",
+    "editorial": "Editorial",
+    "autor": "Tolkien",
+    "fecha": {},
+    "genero": "Novela",
+    "personajes": [
+      {
+        "nombre": "Javier",
+        "importancia": "PRINCIPAL"
+      },
+      {
+        "nombre": "Pedro",
+        "importancia": "SECUNDARIO"
+      }
+    ]
+  }
+]

@@ -26,7 +26,7 @@ public class ProcesamientoFicheroSAX extends ProcesamientoFichero{
 		InputSource fichero = new InputSource(ruta);
 		lector.parse(fichero);;
 		listaLibros = parser.obtenerResultado();
-		System.out.println("listaLibros" + listaLibros);
+		
 		return listaLibros;
 
 }

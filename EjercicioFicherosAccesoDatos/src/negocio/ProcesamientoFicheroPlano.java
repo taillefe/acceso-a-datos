@@ -41,7 +41,7 @@ public class ProcesamientoFicheroPlano extends ProcesamientoFichero{
 		String nombre;
 		String importanciaString;
 
-	//	try {
+	
 		
 			fr = new FileReader(ruta);
 			BufferedReader bfr = new BufferedReader (fr);
@@ -51,8 +51,7 @@ public class ProcesamientoFicheroPlano extends ProcesamientoFichero{
 			Personaje personaje = new Personaje();
 			
 			while ((cadena = bfr.readLine()) != null ) {
-				System.out.println(" cadena "+ cadena );
-
+				
 				// introducir esos datos en un objeto Libro y en un objeto Personaje
 				// recorrer los datos del libro para guardarlos en sus variable
 				String partesLibro[] = cadena.split(";");
@@ -96,20 +95,9 @@ public class ProcesamientoFicheroPlano extends ProcesamientoFichero{
 				// inicializamos listaPersonajes
 				listaPersonajes = new ArrayList();
 			}		 
-	//  }	
+	
 		fr.close();
 		return listaLibros;
-
-	//	}catch(FileNotFoundException ex)
-	//	{
-	//		System.out.printf("\nHa ocurrido un error. No se ha encontrado el fichero:\n%s",ex.getMessage());
-			
-	//	}catch(IOException ex)
-	//	{
-	//		ex.printStackTrace();
-	//	}
-
-		
 
 	}//leerFichero
 
@@ -118,9 +106,7 @@ public class ProcesamientoFicheroPlano extends ProcesamientoFichero{
 		
 		
 		ArrayList<Personaje> listaPersonajes = new ArrayList();;
-		
-		
-		
+
 		//variable locales para recoger los campos del objeto libro y personaje
 		String titulo;
 		String editorial;
@@ -157,16 +143,14 @@ public class ProcesamientoFicheroPlano extends ProcesamientoFichero{
 				// crear la cadena de personajes
 				personajes = personajes + "-" + nombre + "," + importanciaString;
 			}
-			libros = titulo + ";" +editorial +";" + autor +";" +fecha.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) +";"+genero +";"+ personajes;
+			libros = titulo + ";" +editorial +";" + autor +";" +fecha.format(DateTimeFormatter.ofPattern("d/M/yyyy")) +";"+genero +";"+ personajes;
 			 bfw.write(libros + "\n");
 			 personajes = "";
 			 libros = "";
-	    	System.out.println("escribir libros : " + libros);
-	    	
+		    	
 		}	
 	    bfw.close();
-		
-		
+	
 	}//guardarFichero
 
 
