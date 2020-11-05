@@ -4,13 +4,21 @@ import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlType;
 
+//orden de los campos
 @XmlType(propOrder={"nombre", "importancia" })
+
+/**
+ * 
+ * @author laura
+ * clase Personaje, donde se definen los campos de los personajes para guardar sus datos en el archivo
+ */
 public class Personaje implements Serializable{
 	
 
 	String nombre;
 	TipoImportancia importancia;
 	
+	// definicion de un tipo de datos enumerado
 	public enum TipoImportancia {
 		PRINCIPAL, SECUNDARIO, RECURRENTE;
 	}

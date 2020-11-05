@@ -11,7 +11,16 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+
+// para que los campos salgan en el orden que hemos decidido
 @XmlType(propOrder={"titulo", "editorial" , "autor", "fecha", "genero", "personajes" })
+
+/**
+ * 
+ * @author laura
+ * clase libro donde se definen los campos que se van a usar para guardar los datos en el fichero
+ * es Serializable para que pueda guardarse como binario
+ */
 public class Libro implements Serializable{
 	
 	String titulo;

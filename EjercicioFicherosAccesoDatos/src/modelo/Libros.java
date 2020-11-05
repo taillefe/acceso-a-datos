@@ -6,6 +6,14 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="libros")
+
+/**
+ * 
+ * @author laura
+ *clase Libros (lista de libros), se debe definir la lista de libros como una clase
+ *para usar en el procesamientos de ficheros XML con JAXB 
+ *
+ */
 public class Libros {
 	private ArrayList<Libro> listaLibros;
 

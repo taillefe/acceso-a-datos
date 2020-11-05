@@ -9,7 +9,12 @@ import com.google.gson.annotations.SerializedName;
 
 import modelo.Personaje.TipoImportancia;
 
-
+/**
+ * 
+ * @author laura
+ * clase PersonajeGSON es un duplicado de la clase Personaje que se usa para 
+ * el procesamiento del fichero JSONGSON
+ */
 public class PersonajeGSON implements Serializable{
 	
 

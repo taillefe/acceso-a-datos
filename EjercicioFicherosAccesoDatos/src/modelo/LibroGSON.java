@@ -15,7 +15,13 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-
+/**
+ * 
+ * @author laura
+ * clase LibroGSON, se utiliza en el procesamiento de fichero JSOGSON 
+ * es un duplicado de la clase Libro, con anotaciones para el tratamiento con JSONGSON
+ *
+ */
 public class LibroGSON implements Serializable{
 
 	@SerializedName("titulo")
