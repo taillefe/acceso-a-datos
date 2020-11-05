@@ -1,12 +1,16 @@
 package negocio;
 
 import java.io.BufferedReader;
+
 import java.io.BufferedWriter;
+import java.io.EOFException;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -18,10 +22,29 @@ import java.util.List;
 import modelo.Libro;
 import modelo.Personaje;
 
+
+/**
+ * 
+ * @author laura
+ * clase ProcesamientoFicheroPlano que hereda de ProcesamientoFichero
+ * define los métodos 
+ * -leerFichero 
+ * -guardarFichero 
+ * 
+ *
+ */
 public class ProcesamientoFicheroPlano extends ProcesamientoFichero{
 	
-	
-	
+
+	/** 
+	 * 	método leerFichero, se usa para leer los datos de un fichero y devolver una lista con los objetos leídos
+	 *  @param la ruta donde se encuentra el fichero a leer
+	 *  @return devuelve una lista con los objetos Libro que se guardaban en el fichero
+	 *  @throws controla las excepciones que se dan en todos los procedimientos y que se heredan 
+	 *  		de la interface IProcedimientoFichero 
+	 *  		
+	 */
+
 	public List<Libro> leerFichero(String ruta) throws IOException   	{
 	
 		String cadena = "";

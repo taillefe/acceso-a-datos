@@ -17,8 +17,28 @@ import org.xml.sax.SAXException;
 import modelo.Libro;
 import modelo.Libros;
 
+/**
+ * 
+ * @author laura
+ * clase ProcesamientoFicheroXMLJAXB que hereda de ProcesamientoFichero
+ * define los métodos 
+ * -leerFichero 
+ * -guardarFichero 
+ * 
+ *
+ */
+
 public class ProcesamientoFicheroXMLJAXB extends ProcesamientoFichero {
 
+	/** 
+	 * 	método leerFichero, se usa para leer los datos de un fichero y devolver una lista con los objetos leídos
+	 *  @param la ruta donde se encuentra el fichero a leer
+	 *  @return devuelve una lista con los objetos Libro que se guardaban en el fichero
+	 *  @throws controla las excepciones que se dan en todos los procedimientos y que se heredan 
+	 *  		de la interface IProcedimientoFichero 
+	 *  		
+	 */
+	
 	@Override
 	public List<Libro> leerFichero(String ruta)
 			throws IOException, ClassNotFoundException, ParserConfigurationException, SAXException, JAXBException,TransformerException {

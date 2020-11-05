@@ -1,6 +1,9 @@
 package negocio;
 
+import java.io.EOFException;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,18 +17,32 @@ import org.xml.sax.helpers.XMLReaderFactory;
 
 import modelo.Libro;
 
+
 /**
  * 
  * @author laura
- *	clase ProcesamientoFicheroSAX
- *	En este caso solo lo hemos utilizado para leer un fichero XML
- *  el método guardarFichero se hace referencia a él pero no se desarrolla
- *  funciona como un analizador que genera una serie de eventos al tratar 
- *  el documento, y esos eventos serán procesados por métodos
+ * clase ProcesamientoFicheroSAX que hereda de ProcesamientoFichero
+ * define los métodos 
+ * -leerFichero 
+ * -guardarFichero 
+ * 
  *
  */
-public class ProcesamientoFicheroSAX extends ProcesamientoFichero{
+
+ public class ProcesamientoFicheroSAX extends ProcesamientoFichero{
 	
+	
+	/** 
+	 * 	método leerFichero, se usa para leer los datos de un fichero XML y devolver una lista con los objetos leídos
+	 *  funciona como un analizador que genera una serie de eventos al tratar 
+	 *  el documento, y esos eventos serán procesados por métodos
+	 *  @param la ruta donde se encuentra el fichero a leer
+	 *  @return devuelve una lista con los objetos Libro que se guardaban en el fichero
+	 *  @throws controla las excepciones que se dan en todos los procedimientos y que se heredan 
+	 *  		de la interface IProcedimientoFichero 
+	 *  		
+	 */
+
 	public List<Libro> leerFichero(String ruta) throws IOException, SAXException {
 	
 		List<Libro> listaLibros = new ArrayList();
@@ -39,12 +56,16 @@ public class ProcesamientoFicheroSAX extends ProcesamientoFichero{
 		
 		return listaLibros;
 
-}
+	}//leerFichero
+
+	/**
+	 *  método guardarFichero se hace referencia a él pero no se desarrolla
+	 */
 
 	@Override
 	public void guardarFichero(List<Libro> listaLibros, String ruta)
 			throws IOException, ParserConfigurationException, TransformerException {
 		// TODO Auto-generated method stub
 		
-	}
+	}//guardarFichero
 }

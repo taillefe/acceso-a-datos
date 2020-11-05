@@ -25,7 +25,7 @@ import negocio.ProcesamientoFicheroXMLJAXB;
  * 
  * @author laura garcia
  * programa que ejecuta los diferentes procesamientos de ficheros
- * Lectura y escritura de ficheros tratados de diferente manera 
+ * Lectura y escritura de ficheros con un tratamiento diferente
  * Fichero plano
  * Fichero binario
  * Fichero XML con DOM
@@ -108,8 +108,7 @@ public class EjercicioLibros {
 		// APARTADO 8 ProcesamientoFicheroSAX, 
 		// lee el fichero xml (libroxmldom.txt) y devuelve una lista en listadoLibrosSAX 
 		
-					path = "prueba\\librosxmldom.txt";
-					listadoLibrosSAX =  procSAX.leerFichero(path);
+					path = "prueba\\librosxmldom.txt";		listadoLibrosSAX =  procSAX.leerFichero(path);
 					
 				
 			// visualiza por pantalla las listas generadas en las lecturas de ficheros de los diferente procesos	

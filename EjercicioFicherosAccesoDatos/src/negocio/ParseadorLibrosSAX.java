@@ -39,12 +39,17 @@ public class ParseadorLibrosSAX extends DefaultHandler{
 		IMPORTANCIA
 	}
 	
+	/**
+	 * definición de constructor vacío
+	 */
 	public ParseadorLibrosSAX() {
 		super();
 	}
 	
 
-	
+	/**
+	 * startDocument 
+	 */
 	@Override
 	public void startDocument() throws SAXException {
 		listadoLibros = new ArrayList<Libro>(); // creo el listado de los libros
@@ -52,6 +57,9 @@ public class ParseadorLibrosSAX extends DefaultHandler{
 	
 	}
 	
+	/**
+	 * startElement 
+	 */
 	@Override
 	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
 		if (localName != null) {
@@ -68,6 +76,10 @@ public class ParseadorLibrosSAX extends DefaultHandler{
 		}
 		
 	}
+	
+	/**
+	 * endElement
+	 */
 	@Override
 	public void endElement(String uri, String localName, String qName) throws SAXException {
 		if (localName != null) {
@@ -84,7 +96,7 @@ public class ParseadorLibrosSAX extends DefaultHandler{
 			case AUTOR:
 				libro.setAutor(valorElemento);
 				break;
-			case FECHA:
+			case FECHA: // se parsea el dato obtenido como String del fichero a LocalDate
 				libro.setFecha(LocalDate.parse(valorElemento, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 				break;
 			case GENERO:
@@ -99,17 +111,25 @@ public class ParseadorLibrosSAX extends DefaultHandler{
 			case NOMBRE:
 				personaje.setNombre(valorElemento);
 				break;
-			case IMPORTANCIA:
+			case IMPORTANCIA: 
 				personaje.setImportancia(Personaje.TipoImportancia.valueOf(valorElemento.toUpperCase()));
 				break;
 			}
 		}
 	}
+	
+	/**
+	 * characters
+	 */
 	@Override
 	public void characters(char[] ch, int start, int length) throws SAXException {
 		valorElemento = new String(ch,start,length);
 	}
 	
+	/**
+	 * obtener resultado
+	 * @return el listado de los Libros leídos en el fichero
+	 */
 	public ArrayList<Libro> obtenerResultado(){
 		return listadoLibros;
 	}

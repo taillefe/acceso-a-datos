@@ -1,6 +1,8 @@
 package negocio;
 
 import java.io.File;
+
+
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -29,9 +31,27 @@ import modelo.Libro;
 import modelo.Personaje;
 import modelo.Personaje.TipoImportancia;
 
+
+/**
+ * 
+ * @author laura
+ * clase ProcesamientoFicheroXMLDOM que hereda de ProcesamientoFichero
+ * define los métodos 
+ * -leerFichero 
+ * -guardarFichero 
+ * 
+ */
+
 public class ProcesamientoFicheroXMLDOM extends ProcesamientoFichero{
 	
-	
+	/** 
+	 * 	método leerFichero, se usa para leer los datos de un fichero y devolver una lista con los objetos leídos
+	 *  @param la ruta donde se encuentra el fichero a leer
+	 *  @return devuelve una lista con los objetos Libro que se guardaban en el fichero
+	 *  @throws controla las excepciones que se dan en todos los procedimientos y que se heredan 
+	 *  		de la interface IProcedimientoFichero 
+	 *  		
+	 */
 	public  List<Libro> leerFichero (String ruta) throws IOException, ParserConfigurationException, SAXException{
 		
 		

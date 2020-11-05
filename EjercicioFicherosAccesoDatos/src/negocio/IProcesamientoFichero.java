@@ -14,8 +14,9 @@ import modelo.Libro;
  * 
  * @author laura
  * Interface de los procesamientos de Fichero que se usan en este proyecto
+ * -leerFichero
+ * -guardarFichero
  * 
- *
  */
 public interface IProcesamientoFichero {
 	

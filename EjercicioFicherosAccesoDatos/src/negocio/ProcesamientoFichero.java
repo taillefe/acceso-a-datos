@@ -14,7 +14,11 @@ import java.io.IOException;
 
 public abstract class ProcesamientoFichero implements IProcesamientoFichero {
 	
-	
+	/**
+	 * método existeFichero
+	 * @param ruta del fichero
+	 * @return true o false
+	 */
 	public boolean existeFichero (String ruta) {
 	
 		File f1 = new File (ruta);

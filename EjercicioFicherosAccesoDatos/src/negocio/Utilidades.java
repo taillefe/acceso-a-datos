@@ -8,6 +8,14 @@ import modelo.LibroGSON;
 import modelo.Personaje;
 import modelo.PersonajeGSON;
 
+/**
+ * 
+ * @author laura
+ * clase Utilidades que define los métodos 
+ * -mapearLibroGSONALibro
+ * -mapearLibroALibroGSON
+ *
+ */
 public class Utilidades {
 	
 	// método para pasar el listado de libros de la clase LibroGSON a un listado de libros de la clase Libro
