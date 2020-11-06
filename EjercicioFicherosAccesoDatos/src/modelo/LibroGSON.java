@@ -2,7 +2,6 @@ package modelo;
 
 import modelo.LocalDateAdapter;
 import java.io.Serializable;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapters;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -10,10 +9,6 @@ import com.google.gson.annotations.SerializedName;
 import java.time.LocalDate;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * 
@@ -92,12 +87,11 @@ public class LibroGSON implements Serializable{
 		this.autor = autor;
 	}
 
-	@XmlJavaTypeAdapter(value = LocalDateAdapter.class)
+	
 	public LocalDate getFecha() {
 		return fecha;
 	}
 
-	@XmlJavaTypeAdapter(value = LocalDateAdapter.class)
 	public void setFecha(LocalDate fecha) {
 		this.fecha = fecha;
 	}

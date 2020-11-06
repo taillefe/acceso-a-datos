@@ -50,7 +50,7 @@ public class ParseadorLibrosSAX extends DefaultHandler{
 
 	/**
 	 * startDocument
-	 * 
+	 * excepciones SAXException
 	 *  
 	 */
 	@Override
@@ -61,7 +61,7 @@ public class ParseadorLibrosSAX extends DefaultHandler{
 	/**
 	 * startElement
 	 * @param  uri,  localName,  qName, attributes
-	 * 
+	 *  excepciones SAXException
 	 * 
 	 */
 	@Override
@@ -84,7 +84,7 @@ public class ParseadorLibrosSAX extends DefaultHandler{
 	/**
 	 * endElement
 	 * @param  uri,  localName,  qName
-	 * 
+	 * excepciones SAXException
 	 * 
 	 */
 	@Override
@@ -104,7 +104,7 @@ public class ParseadorLibrosSAX extends DefaultHandler{
 				libro.setAutor(valorElemento);
 				break;
 			case FECHA: // se parsea el dato obtenido como String del fichero a LocalDate
-				libro.setFecha(LocalDate.parse(valorElemento, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+				libro.setFecha(LocalDate.parse(valorElemento, DateTimeFormatter.ofPattern("d/M/yyyy")));
 				break;
 			case GENERO:
 				libro.setGenero(valorElemento);
@@ -128,7 +128,7 @@ public class ParseadorLibrosSAX extends DefaultHandler{
 	/**
 	 * characters
 	 * @param  ch,  start,  length
-	 * 
+	 * excepciones SAXException
 	 * 
 	 */
 	@Override

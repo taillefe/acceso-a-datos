@@ -11,7 +11,6 @@ import java.io.IOException;
  * defilne los métodos existeFichero, borrarFichero y crearFichero
  *
  */
-
 public abstract class ProcesamientoFichero implements IProcesamientoFichero {
 	
 	/**
@@ -19,6 +18,7 @@ public abstract class ProcesamientoFichero implements IProcesamientoFichero {
 	 * @param ruta del fichero
 	 * @return true o false
 	 */
+	
 	public boolean existeFichero (String ruta) {
 	
 		File f1 = new File (ruta);
@@ -60,11 +60,12 @@ public abstract class ProcesamientoFichero implements IProcesamientoFichero {
 		
 	}
 	
+
 	/**
-	 * crearFichero
+	 * 
 	 * @param nombre del fichero
-	 * @return true o false
-	 * @throws IOException
+	 * @return boolean
+	 * @throws IOException excepcion
 	 */
 	public boolean crearFichero(String nombre) throws IOException  {
 		

@@ -36,9 +36,9 @@ import modelo.Libro;
 	 * 	método leerFichero, se usa para leer los datos de un fichero XML y devolver una lista con los objetos leídos
 	 *  funciona como un analizador que genera una serie de eventos al tratar 
 	 *  el documento, y esos eventos serán procesados por métodos
-	 *  @param la ruta donde se encuentra el fichero a leer
-	 *  @return devuelve una lista con los objetos Libro que se guardaban en el fichero
-	 *  @throws IOException, SAXException
+	 *  parametros la ruta donde se encuentra el fichero a leer
+	 *  devuelve una lista con los objetos Libro que se guardaban en el fichero
+	 *  excepciones IOException, SAXException
 	 *  		
 	 */
 
@@ -61,11 +61,10 @@ import modelo.Libro;
 	 * 
 	 * 	método guardarFichero, guarda los datos que se le pasan por parámetro en una lista de objetos Libro, 
 	 * 			en el fichero del que tambien se le pasan los datos de la ruta donde se encuentra
-	 *  @param 
+	 *  parametros 
 	 *  	la lista con los objetos Libro que se guardarán en el fichero
 	 *  	la ruta del fichero donde se van a guardar los datos
-	 *  @return void
-	 *  @throws IOException, ParserConfigurationException, TransformerException
+	 *  excepciones IOException, ParserConfigurationException, TransformerException
 	 *  		
 	 */
 

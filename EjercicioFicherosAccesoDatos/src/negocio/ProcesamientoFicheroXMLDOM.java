@@ -46,9 +46,9 @@ public class ProcesamientoFicheroXMLDOM extends ProcesamientoFichero{
 	
 	/** 
 	 * 	método leerFichero, se usa para leer los datos de un fichero y devolver una lista con los objetos leídos
-	 *  @param la ruta donde se encuentra el fichero a leer
-	 *  @return devuelve una lista con los objetos Libro que se guardaban en el fichero
-	 *  @throws IOException, ParserConfigurationException, SAXException
+	 *  parametros la ruta donde se encuentra el fichero a leer
+	 *  devuelve una lista con los objetos Libro que se guardaban en el fichero
+	 *  excepciones IOException, ParserConfigurationException, SAXException
 	 *  		
 	 */
 	public  List<Libro> leerFichero (String ruta) throws IOException, ParserConfigurationException, SAXException{
@@ -109,7 +109,7 @@ public class ProcesamientoFicheroXMLDOM extends ProcesamientoFichero{
 				if(( elLibro.getElementsByTagName("fecha")
 						.item(0) ) != null) {
 					fecha = LocalDate.parse(elLibro.getElementsByTagName("fecha").item(0).getChildNodes().item(0).getNodeValue(),
-							DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+							DateTimeFormatter.ofPattern("d/M/yyyy"));
 				}
 				genero = elLibro.getElementsByTagName("genero")
 						.item(0).getChildNodes().item(0).getNodeValue();
@@ -164,11 +164,10 @@ public class ProcesamientoFicheroXMLDOM extends ProcesamientoFichero{
 	 * 
 	 * 	método guardarFichero, guarda los datos que se le pasan por parámetro en una lista de objetos Libro, 
 	 * 			en el fichero del que tambien se le pasan los datos de la ruta donde se encuentra
-	 *  @param 
+	 * parametros 
 	 *  	la lista con los objetos Libro que se guardarán en el fichero
 	 *  	la ruta del fichero donde se van a guardar los datos
-	 *  @return void
-	 *  @throws IOException, ParserConfigurationException, TransformerException
+	 *  excepciones IOException, ParserConfigurationException, TransformerException
 	 *  		
 	 */
 	public  void guardarFichero ( List<Libro> listaLibros, String ruta) throws  IOException, ParserConfigurationException, TransformerException{
@@ -205,7 +204,7 @@ public class ProcesamientoFicheroXMLDOM extends ProcesamientoFichero{
 			libro.appendChild(node);
 			
 			node = doc.createElement("fecha");
-			node.appendChild(doc.createTextNode(String.valueOf(l.getFecha())));
+			node.appendChild(doc.createTextNode(l.getFecha().format(DateTimeFormatter.ofPattern("d/M/yyyy"))));
 			libro.appendChild(node);
 			
 			node = doc.createElement("genero");

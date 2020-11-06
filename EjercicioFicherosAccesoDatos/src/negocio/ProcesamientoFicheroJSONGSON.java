@@ -32,10 +32,10 @@ public class ProcesamientoFicheroJSONGSON extends ProcesamientoFichero {
 
 	/** 
 	 * 	método leerFichero, se usa para leer los datos de un fichero y devolver una lista con los objetos leídos
-	 *  @param la ruta donde se encuentra el fichero a leer
-	 *  @return devuelve una lista con los objetos Libro que se guardaban en el fichero
-	 *  @throws IOException, ClassNotFoundException,
-			ParserConfigurationException, SAXException, JAXBException, TransformerException 
+	 *  parámetros ruta donde se encuentra el fichero a leer
+	 *  devuelve una lista con los objetos Libro que se guardaban en el fichero
+	 *  excepciones 
+	 *  	IOException, ClassNotFoundException, ParserConfigurationException, SAXException, JAXBException, TransformerException 
 	 *  		
 	 */
 	@Override
@@ -61,11 +61,10 @@ public class ProcesamientoFicheroJSONGSON extends ProcesamientoFichero {
 	 * 
 	 * 	método guardarFichero, guarda los datos que se le pasan por parámetro en una lista de objetos Libro, 
 	 * 			en el fichero del que tambien se le pasan los datos de la ruta donde se encuentra
-	 *  @param 
+	 *  parametros
 	 *  	la lista con los objetos Libro que se guardarán en el fichero
 	 *  	la ruta del fichero donde se van a guardar los datos
-	 *  @return void
-	 *  @throws IOException, ParserConfigurationException, TransformerException, JAXBException
+	 *  excepciones IOException, ParserConfigurationException, TransformerException, JAXBException
 	 *  		
 	 */
 	@Override
