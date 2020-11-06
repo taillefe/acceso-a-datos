@@ -50,21 +50,19 @@ public class ParseadorLibrosSAX extends DefaultHandler{
 
 	/**
 	 * startDocument
-	 * @return void
-	 * @throws SAXException 
+	 * 
+	 *  
 	 */
 	@Override
 	public void startDocument() throws SAXException {
 		listadoLibros = new ArrayList<Libro>(); // creo el listado de los libros
-	
-	
 	}
 	
 	/**
 	 * startElement
-	 * @param String uri, String localName, String qName, Attributes attributes
-	 * @return void
-	 * @throws SAXException 
+	 * @param  uri,  localName,  qName, attributes
+	 * 
+	 * 
 	 */
 	@Override
 	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
@@ -85,9 +83,8 @@ public class ParseadorLibrosSAX extends DefaultHandler{
 	
 	/**
 	 * endElement
-	 * @param String uri, String localName, String qName
-	 * @return void
-	 * @throws SAXException 
+	 * @param  uri,  localName,  qName
+	 * 
 	 * 
 	 */
 	@Override
@@ -130,9 +127,9 @@ public class ParseadorLibrosSAX extends DefaultHandler{
 	
 	/**
 	 * characters
-	 * @param char[] ch, int start, int length
-	 * @return void
-	 * @throws SAXException
+	 * @param  ch,  start,  length
+	 * 
+	 * 
 	 */
 	@Override
 	public void characters(char[] ch, int start, int length) throws SAXException {
@@ -141,7 +138,7 @@ public class ParseadorLibrosSAX extends DefaultHandler{
 	
 	/**
 	 * obtener resultado
-	 * @return el listado de los Libros leídos en el fichero
+	 * @return listadoLibros
 	 */
 	public ArrayList<Libro> obtenerResultado(){
 		return listadoLibros;
