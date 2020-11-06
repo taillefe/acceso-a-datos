@@ -23,13 +23,14 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  */
 public class Libro implements Serializable{
 	
+	//variables donde se guardan las características del libro
 	String titulo;
 	String editorial;
 	String autor;
-	
 	LocalDate fecha;
 	String genero;
 
+	//Personajes es una lista de personajes que puede tener el libro
 	private List<Personaje> personajes;
 	
 	// constructor vacío

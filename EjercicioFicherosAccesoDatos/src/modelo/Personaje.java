@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 public class Personaje implements Serializable{
 	
-
+	//variables que definen las caracteristicas de cada personaje
 	String nombre;
 	TipoImportancia importancia;
 	

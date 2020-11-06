@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.adapters.XmlAdapter;
  * 
  * @author laura
  * clase utilizada para adaptar el formato del campo fecha que es localdate a string 
- * y de string a localdate
+ * y de string a localdate en xml
  *
  */
 

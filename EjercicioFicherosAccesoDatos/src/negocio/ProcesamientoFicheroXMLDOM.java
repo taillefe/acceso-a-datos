@@ -131,9 +131,6 @@ public class ProcesamientoFicheroXMLDOM extends ProcesamientoFichero{
 					
 					if (nodePers.getNodeType() == Node.ELEMENT_NODE) { //Si el nodo es un elemento DOM
 						Element elPer = (Element) nodePers;
-				
-						//Element elPer =(Element) elPers.getElementsByTagName("personaje").item(0);
-												
 						nombre = elPer.getElementsByTagName("nombre")
 								.item(0).getChildNodes().item(0).getNodeValue();
 						importanciaString = elPer.getElementsByTagName("importancia")
@@ -144,8 +141,7 @@ public class ProcesamientoFicheroXMLDOM extends ProcesamientoFichero{
 						listaPersonajes.add((Personaje) new Personaje(nombre,importancia));
 					}
 				}	
-				
-				
+			
 				// creo un libro con los datos obtenidos y lo añado a la lista
 				// para cada libro dentro del xml
 				Libro l = new Libro(titulo, editorial, autor, fecha, genero, listaPersonajes);

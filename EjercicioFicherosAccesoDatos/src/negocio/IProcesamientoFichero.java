@@ -19,10 +19,28 @@ import modelo.Libro;
  * 
  */
 public interface IProcesamientoFichero {
-	
+	/**
+	 * 
+	 * @param ruta del fichero
+	 * @return
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 * @throws ParserConfigurationException
+	 * @throws SAXException
+	 * @throws JAXBException
+	 * @throws TransformerException
+	 */
 	public  List<Libro> leerFichero(String ruta) throws IOException, ClassNotFoundException, ParserConfigurationException, SAXException, JAXBException, TransformerException;
 
-	
+	/**
+	 * 
+	 * @param listaLibros
+	 * @param ruta
+	 * @throws IOException
+	 * @throws ParserConfigurationException
+	 * @throws TransformerException
+	 * @throws JAXBException
+	 */
 	public   void guardarFichero( List<Libro> listaLibros, String ruta) throws IOException, ParserConfigurationException, TransformerException, JAXBException;
 
 
