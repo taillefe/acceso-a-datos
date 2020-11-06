@@ -48,10 +48,12 @@ public class LibroGSON implements Serializable{
 	@Expose
 	private List<PersonajeGSON> personajes;
 	
+	//constructor vacío
 	public LibroGSON() {
 		
 	}
 	
+	// constructor
 	public LibroGSON(String titulo, String editorial, String autor, LocalDate fecha, String genero,
 			List<PersonajeGSON> personajes) {
 		super();

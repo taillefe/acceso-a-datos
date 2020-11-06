@@ -6,7 +6,6 @@ import javax.xml.bind.annotation.XmlType;
 
 //orden de los campos
 @XmlType(propOrder={"nombre", "importancia" })
-
 /**
  * 
  * @author laura
@@ -23,9 +22,11 @@ public class Personaje implements Serializable{
 		PRINCIPAL, SECUNDARIO, RECURRENTE;
 	}
 
+	// constructor vacío
 	public Personaje() {
 		
 	}
+	//constructor
 	public Personaje(String nombre, TipoImportancia importancia) {
 		super();
 		this.nombre = nombre;

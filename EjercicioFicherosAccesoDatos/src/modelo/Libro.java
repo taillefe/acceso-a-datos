@@ -32,10 +32,12 @@ public class Libro implements Serializable{
 
 	private List<Personaje> personajes;
 	
+	// constructor vacío
 	public Libro() {
 		
 	}
 	
+	// constructor
 	public Libro(String titulo, String editorial, String autor, LocalDate fecha, String genero,
 			List<Personaje> personajes) {
 		super();

@@ -24,13 +24,17 @@ public class PersonajeGSON implements Serializable{
 	@SerializedName("importancia")
 	@Expose	TipoImportancia importancia;
 	
+	//El enumerado TipoImportancia se define en Personaje 
 //	public enum TipoImportancia {
 //		PRINCIPAL, SECUNDARIO, RECURRENTE;
 //	}
 
+	// constructor vacío
 	public PersonajeGSON() {
 		
 	}
+	
+	//constructor
 	public PersonajeGSON(String nombre, TipoImportancia importancia) {
 		super();
 		this.nombre = nombre;
