@@ -3,7 +3,7 @@
     "titulo": "Los pilares de la Tierra",
     "editorial": "Macmillan Publishers",
     "autor": "Kent Follet",
-    "fecha": {},
+    "fecha": "21/5/1989",
     "genero": "Novela Histórica",
     "personajes": [
       {
@@ -28,7 +28,7 @@
     "titulo": "El Señor de los anillos",
     "editorial": "Editorial",
     "autor": "Tolkien",
-    "fecha": {},
+    "fecha": "1/5/2989",
     "genero": "Novela",
     "personajes": [
       {

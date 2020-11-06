@@ -3,6 +3,7 @@ package negocio;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -18,6 +19,7 @@ import com.google.gson.GsonBuilder;
 
 import modelo.Libro;
 import modelo.LibroGSON;
+import modelo.LocalDateAdapterGSON;
 
 /**
  * 
@@ -44,7 +46,10 @@ public class ProcesamientoFicheroJSONGSON extends ProcesamientoFichero {
 		
 		ArrayList<Libro> listaLibros = new ArrayList<Libro>();
 		// solo importa los datos que tienen @Expose, puede interesar no exportar o importar algunos datos
-		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create(); 
+		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().
+				registerTypeAdapter(LocalDate.class, new LocalDateAdapterGSON()).create(); 
+		
+		
 		FileReader fr = new FileReader(ruta);
 		LibroGSON[] libros = gson.fromJson(fr, LibroGSON[].class);
 		
@@ -74,7 +79,8 @@ public class ProcesamientoFicheroJSONGSON extends ProcesamientoFichero {
 		ArrayList<LibroGSON> listaLibrosGSON = new ArrayList<LibroGSON>();
 		
 		// solo exporta los datos que tienen @Expose, puede interesar no exportar o importar algunos datos
-		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
+		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().
+				registerTypeAdapter(LocalDate.class, new LocalDateAdapterGSON()).create();
 		
 	
 		// hay que mapear los datos de listaLibros en listaLibrosGSON (de la clase LibroGSON)
