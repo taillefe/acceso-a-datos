@@ -45,11 +45,11 @@ public class ProcesamientoFicheroJSONGSON extends ProcesamientoFichero {
 			ParserConfigurationException, SAXException, JAXBException, TransformerException {
 		
 		ArrayList<Libro> listaLibros = new ArrayList<Libro>();
+		
 		// solo importa los datos que tienen @Expose, puede interesar no exportar o importar algunos datos
 		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().
 				registerTypeAdapter(LocalDate.class, new LocalDateAdapterGSON()).create(); 
-		
-		
+				
 		FileReader fr = new FileReader(ruta);
 		LibroGSON[] libros = gson.fromJson(fr, LibroGSON[].class);
 		
@@ -82,7 +82,6 @@ public class ProcesamientoFicheroJSONGSON extends ProcesamientoFichero {
 		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().
 				registerTypeAdapter(LocalDate.class, new LocalDateAdapterGSON()).create();
 		
-	
 		// hay que mapear los datos de listaLibros en listaLibrosGSON (de la clase LibroGSON)
 		listaLibrosGSON = (ArrayList<LibroGSON>) Utilidades.mapearlibroALibroGSON(listaLibros);
 				

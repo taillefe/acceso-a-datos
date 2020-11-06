@@ -22,7 +22,7 @@ public abstract class ProcesamientoFichero implements IProcesamientoFichero {
 	public boolean existeFichero (String ruta) {
 	
 		File f1 = new File (ruta);
-		if (!f1.exists()) {
+		if (!f1.exists()) {  // si no existe el fichero
 			
 			System.out.println ("El fichero " + ruta + " no existe");
 			return false;
@@ -41,8 +41,8 @@ public abstract class ProcesamientoFichero implements IProcesamientoFichero {
 	 */
 	public boolean borrarFichero (String ruta) {
 		File f = new File (ruta);
-		if (f.exists()) {
-			if (f.delete())
+		if (f.exists()) { // si existe el fichero
+			if (f.delete()) // si se borra el fichero
 			{
 				System.out.println ("El fichero " + ruta + " ha sido borrado");
 				return true;
@@ -70,7 +70,7 @@ public abstract class ProcesamientoFichero implements IProcesamientoFichero {
 	public boolean crearFichero(String nombre) throws IOException  {
 		
 		File f = new File (nombre);
-		if (!f.exists()) {
+		if (!f.exists()) {  // si no existe el fichero
 			if (!f.createNewFile()	)
 			{
 				System.out.println ("No se ha podido crear el fichero " + nombre);
