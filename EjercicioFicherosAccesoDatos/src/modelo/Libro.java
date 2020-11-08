@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * 
  * @author laura
  * clase libro donde se definen los campos que se van a usar para guardar los datos en el fichero
- * es Serializable para que pueda guardarse como binario
+ * es Serializable para que pueda guardarse como binario y tiene notaciones para poder usarse con JAXB
  */
 public class Libro implements Serializable{
 	
@@ -54,7 +54,7 @@ public class Libro implements Serializable{
 	public String getTitulo() {
 		return titulo;
 	}
-	@XmlElement
+	@XmlElement  // esta etiqueta permite cambiar el nombre de un elemento
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
@@ -111,8 +111,5 @@ public class Libro implements Serializable{
 		return "Libro [titulo=" + titulo + ", editorial=" + editorial + ", autor=" + autor + ", fecha=" + fecha
 				+ ", genero=" + genero + ", personajes=" + personajes + "]";
 	}
-	
-	
-	
 
 }

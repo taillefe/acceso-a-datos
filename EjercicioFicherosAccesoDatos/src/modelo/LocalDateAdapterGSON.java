@@ -8,12 +8,11 @@ import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
-
 /**
  * 
  * @author laura
- *  clase utilizada para adaptar el formato del campo fecha que es localdate a string 
- * y de string a localdate en gson
+ *  clase utilizada para adaptar el formato del campo fecha que es LocalDate a String 
+ * y de String a LocalDate en GSON
  *
  */
 public class LocalDateAdapterGSON extends TypeAdapter<LocalDate> {
@@ -31,6 +30,4 @@ public class LocalDateAdapterGSON extends TypeAdapter<LocalDate> {
 		jsonWriter.value(localDate.format(formatter));
 		
 	}
-	
-
 }

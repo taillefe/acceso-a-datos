@@ -20,12 +20,12 @@ import modelo.Libros;
 /**
  * 
  * @author laura
- * clase ProcesamientoFicheroXMLJAXB que hereda de ProcesamientoFichero
+ * clase ProcesamientoFicheroXMLJAXB traduce un documento XML a una coleccion de objetos
+ * mediante la deserializacion y una coleccion de objetos a un documento XML  mediante 
+ * la serialización
  * define los métodos 
  * -leerFichero 
  * -guardarFichero 
- * 
- *
  */
 
 public class ProcesamientoFicheroXMLJAXB extends ProcesamientoFichero {
@@ -45,6 +45,7 @@ public class ProcesamientoFicheroXMLJAXB extends ProcesamientoFichero {
 		File file = new File (ruta);
 		ArrayList<Libro> libros =new ArrayList<Libro>();
 		if (file.exists()) {
+			//para JAXB es necesario crear una clase para la lista de los libros
 			JAXBContext jaxbContext = JAXBContext.newInstance(Libros.class);
 			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 			
@@ -54,9 +55,7 @@ public class ProcesamientoFicheroXMLJAXB extends ProcesamientoFichero {
 		}else {
 			System.out.println("No se ha encontrado el fichero indicado");
 		}
-
-		
-		return libros;
+    	return libros;
 	} //leerFichero
 
 	/**

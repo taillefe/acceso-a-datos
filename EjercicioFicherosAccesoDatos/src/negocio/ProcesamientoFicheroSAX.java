@@ -21,11 +21,11 @@ import modelo.Libro;
 /**
  * 
  * @author laura
- * clase ProcesamientoFicheroSAX que hereda de ProcesamientoFichero
+ * clase ProcesamientoFicheroSAX analiza los datos y genera eventos que son
+ * procesados por métodos
  * define los métodos 
  * -leerFichero 
  * -guardarFichero 
- * 
  *
  */
 
@@ -59,11 +59,8 @@ import modelo.Libro;
 
 	/**
 	 * 
-	 * 	método guardarFichero, guarda los datos que se le pasan por parámetro en una lista de objetos Libro, 
-	 * 			en el fichero del que tambien se le pasan los datos de la ruta donde se encuentra
-	 *  parametros 
-	 *  	la lista con los objetos Libro que se guardarán en el fichero
-	 *  	la ruta del fichero donde se van a guardar los datos
+	 * 	método guardarFichero, en este caso solo se implementa la cabecera. porque SAX 
+	 *  se utiliza en este caso solo para leer el fichero XML
 	 *  excepciones IOException, ParserConfigurationException, TransformerException
 	 *  		
 	 */

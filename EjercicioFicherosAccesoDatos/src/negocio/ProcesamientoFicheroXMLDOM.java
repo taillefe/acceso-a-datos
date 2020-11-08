@@ -35,7 +35,8 @@ import modelo.Personaje.TipoImportancia;
 /**
  * 
  * @author laura
- * clase ProcesamientoFicheroXMLDOM que hereda de ProcesamientoFichero
+ * clase ProcesamientoFicheroXMLDOM 
+ *  modifica los datos, crea un documento DOM en memoria y los persiste en un documento XML
  * define los métodos 
  * -leerFichero 
  * -guardarFichero 
@@ -175,14 +176,13 @@ public class ProcesamientoFicheroXMLDOM extends ProcesamientoFichero{
 		dBuilder = dbFactory.newDocumentBuilder();
 		Document doc =dBuilder.newDocument();
 		
-		//elemento raiz (<Libro>)
+		//elemento raiz libro
 		Element rootElement = doc.createElementNS(null, "libros");
 		
-		//añado el nodo raiz al documento
+		//añadir el nodo raiz al documento
 		doc.appendChild(rootElement);
 
-		
-		//cada elemento <libro> que tenemos en el listado
+		//cada elemento libro que tenemos en el listado listaLibros
 		for (Libro l:listaLibros) {
 			Element libro = doc.createElement("libro"); // creacion de un nodo libro
 			
@@ -227,9 +227,8 @@ public class ProcesamientoFicheroXMLDOM extends ProcesamientoFichero{
 				node = doc.createElement("importancia");
 				node.appendChild(doc.createTextNode(String.valueOf(p.getImportancia())));
 				personaje.appendChild(node);
-			
 			}
-			// al final, se asigna el nodo libro al nodo raiz (<libros>)
+			// al final, se asigna el nodo libro al nodo raiz libros
 			rootElement.appendChild(libro);
 		}//for
 		
@@ -240,9 +239,6 @@ public class ProcesamientoFicheroXMLDOM extends ProcesamientoFichero{
 		DOMSource source = new DOMSource(doc);
 		
 		StreamResult file = new StreamResult(new File(ruta));
-		
 		transformer.transform(source, file);
-	
-		}
-
+	}
 }

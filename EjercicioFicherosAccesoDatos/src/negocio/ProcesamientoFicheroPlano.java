@@ -26,7 +26,8 @@ import modelo.Personaje;
 /**
  * 
  * @author laura
- * clase ProcesamientoFicheroPlano que hereda de ProcesamientoFichero
+ * clase ProcesamientoFicheroPlano 
+*  Se trata el fichero caracter a caracter y se determina donde empiezan y acaban los datos	
  * define los métodos 
  * -leerFichero 
  * -guardarFichero 
@@ -63,59 +64,51 @@ public class ProcesamientoFicheroPlano extends ProcesamientoFichero{
 		String nombre;
 		String importanciaString;
 
-	
-		
 			fr = new FileReader(ruta);
 			BufferedReader bfr = new BufferedReader (fr);
 			int c;
 			// creamos un objeto libro y uno personaje, para introducir los valore en los arrayList correspondientes
 			Libro libro = new Libro();
 			Personaje personaje = new Personaje();
-			
+			// cada libro se escribe en una línea diferente
 			while ((cadena = bfr.readLine()) != null ) {
 				
 				// introducir esos datos en un objeto Libro y en un objeto Personaje
-				// recorrer los datos del libro para guardarlos en sus variable
-				String partesLibro[] = cadena.split(";");
+				// recorrer los datos del libro para guardarlos en sus variables
+				// cada dato del libro está separado por ;
+					String partesLibro[] = cadena.split(";"); 
 				
 				// recorremos todo el array de partes del libro
-				
 					titulo = partesLibro[0];
 					editorial = partesLibro[1];
 					autor = partesLibro[2];
-			
+				// la variable fecha se formatea antes de guardarla
 					fecha = LocalDate.parse(partesLibro[3], DateTimeFormatter.ofPattern("d/M/yyyy")); 
 					genero = partesLibro[4];
-					
-					
-				String personajes[] = partesLibro[5].split("-");
+				// cada personaje está separado por un -	
+					String personajes[] = partesLibro[5].split("-");
 						
 				//recorremos todo el array de personajes
 				for (int cont = 0; cont < personajes.length; cont++) {
-					//cada parte del array contiene un personaje, vamos a dividirlos en nombre e importancia
-					
+					//cada parte del array contiene un personaje, 
+					// dividirlos en nombre e importancia por una ,
 					String partePersonaje[] = personajes[cont].split(",");
 					
 					nombre = partePersonaje[0];
 					importanciaString = partePersonaje[1];
-					
-				
+									
 				//usamos el objeto personaje para introducir los datos en el array list de personajes
 					
 					 Personaje.TipoImportancia importancia =Personaje.TipoImportancia.valueOf(importanciaString.toUpperCase());
-					
-				
 					 Personaje per = new Personaje(nombre, importancia);
-					 
 					 listaPersonajes.add(cont,per);
-			
-				}
+			}
 				
-				// usamos el objeto libro para introducir los datos en el arrayList de listaLibros
-				listaLibros.add(new Libro(titulo,editorial, autor,fecha, genero, listaPersonajes));
+			// usamos el objeto libro para introducir los datos en el arrayList de listaLibros
+			listaLibros.add(new Libro(titulo,editorial, autor,fecha, genero, listaPersonajes));
 				
-				// inicializamos listaPersonajes
-				listaPersonajes = new ArrayList();
+			// inicializamos listaPersonajes
+			listaPersonajes = new ArrayList();
 			}		 
 	
 		fr.close();
@@ -142,10 +135,8 @@ public class ProcesamientoFicheroPlano extends ProcesamientoFichero{
 		String titulo;
 		String editorial;
 		String autor;
-	
 		LocalDate fecha;
 		String genero;
-	
 		String nombre;
 		Personaje.TipoImportancia importanciaString;
 		String personajes = null;
@@ -157,7 +148,6 @@ public class ProcesamientoFicheroPlano extends ProcesamientoFichero{
 		for(Libro l : listaLibros) {
 	
 			// obtener los datos del objeto Libro
-			
 			titulo = l.getTitulo();
 			editorial = l.getEditorial();
 			autor = l.getAutor();
@@ -168,7 +158,6 @@ public class ProcesamientoFicheroPlano extends ProcesamientoFichero{
 			//recorremos todo el arrayList de personajes
 			for (Personaje p : listaPersonajes) {
 				//cada parte del array contiene un personaje, vamos a dividirlos en nombre e importancia
-			
 				nombre = p.getNombre();
 				importanciaString = p.getImportancia();
 				// crear la cadena de personajes
@@ -178,7 +167,6 @@ public class ProcesamientoFicheroPlano extends ProcesamientoFichero{
 			 bfw.write(libros + "\n");
 			 personajes = "";
 			 libros = "";
-		    	
 		}	
 	    bfw.close();
 	

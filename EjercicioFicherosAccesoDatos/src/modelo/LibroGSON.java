@@ -20,7 +20,7 @@ import java.util.List;
 public class LibroGSON implements Serializable{
 
 	@SerializedName("titulo")
-	@Expose
+	@Expose   // esta etiqueta permite determinar los elementos que queremos incluir en algunos métodos
 	private String titulo;
 	
 	@SerializedName("editorial")
@@ -45,7 +45,6 @@ public class LibroGSON implements Serializable{
 	
 	//constructor vacío
 	public LibroGSON() {
-		
 	}
 	
 	// constructor
@@ -60,7 +59,6 @@ public class LibroGSON implements Serializable{
 		this.personajes = personajes;
 	}
 
-	
 	public String getTitulo() {
 		return titulo;
 	}
@@ -105,8 +103,7 @@ public class LibroGSON implements Serializable{
 		this.genero = genero;
 	}
 	
-//	@XmlElementWrapper(name="personajes")
- //   @XmlElement(name="personaje")
+
 	public List<PersonajeGSON> getPersonajes() {
 		return personajes;
 	}
@@ -120,8 +117,4 @@ public class LibroGSON implements Serializable{
 		return "Libro [titulo=" + titulo + ", editorial=" + editorial + ", autor=" + autor + ", fecha=" + fecha
 				+ ", genero=" + genero + ", personajes=" + personajes + "]";
 	}
-	
-	
-	
-
 }

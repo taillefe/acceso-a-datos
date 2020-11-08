@@ -17,7 +17,8 @@ import modelo.Libro;
 /**
  * 
  * @author laura
- * clase ProcesamientoFicheroObjetos que hereda de ProcesamientoFichero
+ * clase ProcesamientoFicheroObjetos 
+ * que lee y guarda los datos en ficheros binarios usando una interfaz serializable
  * define los métodos 
  * -leerFichero 
  * -guardarFichero 
@@ -25,10 +26,7 @@ import modelo.Libro;
  *
  */
 public class ProcesamientoFicheroObjetos extends ProcesamientoFichero{
-	
-	
-	
-	
+
 	/** 
 	 * 	método leerFichero, se usa para leer los datos de un fichero y devolver una lista con los objetos leídos
 	 *   la ruta donde se encuentra el fichero a leer
@@ -44,16 +42,12 @@ public class ProcesamientoFicheroObjetos extends ProcesamientoFichero{
 		FileInputStream fis = new FileInputStream(ruta);
 		ObjectInputStream ois = new ObjectInputStream(fis);
 
-		//  de esta forma leemos el fichero como un todo y lo devolvemos en un arraylist
-		//	listaLibros = (ArrayList<Libro>) ois.readObject();
-		
+		// leemos el fichero como un todo
 		try
 		{
 		
 			while (true) { 	
 				listaLibros.add((Libro) ois.readObject());
-				System.out.println("leer lista : " + listaLibros);
-				
 			}
 		}catch(EOFException e){
 			// cuando da error de lectura de fin de fichero, salir
@@ -79,10 +73,7 @@ public class ProcesamientoFicheroObjetos extends ProcesamientoFichero{
 		FileOutputStream fos = new FileOutputStream(ruta);                                                 
 	    ObjectOutputStream oos = new ObjectOutputStream(fos);
 		for(Libro l : listaLibros) {
-	    
 	    	oos.writeObject(l);
-	    	System.out.println("escribir libros : " + l);
-	    	
 		}	
 	    	oos.close();
 	} // guardarFichero

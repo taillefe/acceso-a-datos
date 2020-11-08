@@ -50,8 +50,5 @@ public class Personaje implements Serializable{
 	@Override
 	public String toString() {
 		return "Personaje [nombre=" + nombre + " + importancia =" + importancia +"]";
-	};
-	
-	
-
+	}
 }

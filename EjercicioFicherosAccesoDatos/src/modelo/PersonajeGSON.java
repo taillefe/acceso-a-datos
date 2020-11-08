@@ -31,7 +31,6 @@ public class PersonajeGSON implements Serializable{
 
 	// constructor vacío
 	public PersonajeGSON() {
-		
 	}
 	
 	//constructor
@@ -39,7 +38,6 @@ public class PersonajeGSON implements Serializable{
 		super();
 		this.nombre = nombre;
 		this.importancia = importancia;
-	
 	}
 	public String getNombre() {
 		return nombre;
@@ -58,8 +56,5 @@ public class PersonajeGSON implements Serializable{
 	@Override
 	public String toString() {
 		return "Personaje [nombre=" + nombre + " + importancia =" + importancia +"]";
-	};
-	
-	
-
+	}
 }

@@ -24,7 +24,9 @@ import modelo.LocalDateAdapterGSON;
 /**
  * 
  * @author laura
- * clase ProcesamientoFicheroJSONGSON que hereda de ProcesamientoFichero
+ * clase ProcesamientoFicheroJSONGSON formato de texto que representa los objetos
+ * en forma de pares clave: valor, separados por comas y cada objeto va entre llaves.
+ * la colecciones entre corchetes.
  * define los métodos 
  * -leerFichero 
  * -guardarFichero 
@@ -46,7 +48,7 @@ public class ProcesamientoFicheroJSONGSON extends ProcesamientoFichero {
 		
 		ArrayList<Libro> listaLibros = new ArrayList<Libro>();
 		
-		// solo importa los datos que tienen @Expose, puede interesar no exportar o importar algunos datos
+		//  excludeFieldsWithoutExposeAnnotation solo importa los datos que tienen @Expose, puede interesar no exportar o importar algunos datos
 		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().
 				registerTypeAdapter(LocalDate.class, new LocalDateAdapterGSON()).create(); 
 				
@@ -54,9 +56,11 @@ public class ProcesamientoFicheroJSONGSON extends ProcesamientoFichero {
 		LibroGSON[] libros = gson.fromJson(fr, LibroGSON[].class);
 		
 		//debo mapear libroGSON en libro para devolverlo en ese tipo
-		Utilidades util = new Utilidades();
+		// en este caso he creado un nuevo objeto map para llamar al método, aunque al 
+		// hacer static el método se podría haber llamado directamente con el método
+		MapeadorLibrosGSON map = new MapeadorLibrosGSON();
 	
-		listaLibros = (ArrayList<Libro>)util.mapearlibroGSONALibro(Arrays.asList(libros));
+		listaLibros = (ArrayList<Libro>)map.mapearLibroGSONALibro(Arrays.asList(libros));
 		
 		return listaLibros;
 	}
@@ -83,11 +87,12 @@ public class ProcesamientoFicheroJSONGSON extends ProcesamientoFichero {
 				registerTypeAdapter(LocalDate.class, new LocalDateAdapterGSON()).create();
 		
 		// hay que mapear los datos de listaLibros en listaLibrosGSON (de la clase LibroGSON)
-		listaLibrosGSON = (ArrayList<LibroGSON>) Utilidades.mapearlibroALibroGSON(listaLibros);
+		// se puede hacer directamente sin definir un nuevo objeto porque el metodo de la clase es static
+		listaLibrosGSON = (ArrayList<LibroGSON>) MapeadorLibrosGSON.mapearLibroALibroGSON(listaLibros);
 				
 		String json = gson.toJson(listaLibrosGSON);
 				
-		//escribir en el fichero el String json
+		//escribir en el fichero el String json, todas las excepciones se controlan en el main
 		FileWriter fw = new FileWriter(ruta);
 		fw.write(json);
 		fw.flush();
