@@ -28,7 +28,7 @@ public class PersistenciaBBDD {
 			CargarDriver();
 			c= obtenerConexion();
 			System.out.println (c);
-			String consulta ="CREATE TABLE CLIENTES "
+			String consulta ="CREATE TABLE CLIENTES IF NOT EXIST"
 					+ "(DNI CHAR(9) NOT NULL, APELLIDOS VARCHAR(32) NOT NULL, CP CHAR(5), "
 					+ "PRIMARY KEY(DNI))";
 			Statement s= c.createStatement();
