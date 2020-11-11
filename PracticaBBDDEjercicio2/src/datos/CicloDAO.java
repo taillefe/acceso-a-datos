@@ -1,5 +1,8 @@
 package datos;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
 import modelo.ICicloDAO;
@@ -10,7 +13,38 @@ public class CicloDAO implements ICicloDAO {
 
 	@Override
 	public void insertarCiclo(Ciclo c) {
-		// TODO Auto-generated method stub
+		Connection con= null;
+		try {
+			CargarDriver();
+			con = crearConexion();
+			
+			// hacer un prepareStatement para insertar
+			// los datos de ciclo c
+			String consulta ="INSERT INTO CLIENTES "
+					+ "(DNI, APELLIDOS, CP) VALUES "
+					+ "('78945612A','NADAL','15009'),"
+					+ "('58945612B','DJOKOVIC','15008'),"
+					+ "('68945612','FEDERER','15007'),"
+					+ "('38945612A','MURRAY','15006');";
+			Statement s= con.createStatement();
+			s.executeUpdate(consulta);  // el insert se usa con el executeUpdate
+			s.close();
+		}catch (ClassNotFoundException ex) {
+			System.out.println("Error al cargar el driver de la bbdd");
+			ex.printStackTrace();
+		} catch (SQLException e) {
+			System.out.println("Error en la ejecución de la consulta");
+			e.printStackTrace();
+		}finally {
+			try {
+				if(con!=null && !con.isClosed())
+					cerrarConexion(con);
+			}catch (SQLException e) {
+				System.out.println("Error al cerrar la conexión");
+			}
+		}
+		
+	}
 		
 	}
 
