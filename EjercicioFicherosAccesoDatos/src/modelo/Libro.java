@@ -96,7 +96,7 @@ public class Libro implements Serializable{
 		this.genero = genero;
 	}
 	
-	@XmlElementWrapper(name="personajes")
+	@XmlElementWrapper(name="personajes")  // crea una lista de personaje en personajes
     @XmlElement(name="personaje")
 	public List<Personaje> getPersonajes() {
 		return personajes;

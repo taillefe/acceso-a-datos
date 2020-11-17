@@ -19,7 +19,7 @@ import java.util.List;
  */
 public class LibroGSON implements Serializable{
 
-	@SerializedName("titulo")
+	@SerializedName("titulo")  // determina el nombre del elemento
 	@Expose
 	private String titulo;
 	
