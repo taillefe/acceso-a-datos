@@ -7,6 +7,11 @@ public class Asignatura {
 	int horasSemanales;
 	int idCiclo;
 	
+	//constructor vacío
+	public Asignatura() {
+		
+	}
+	
 	public Asignatura(int id, String nombre, int horasSemanales, int idCiclo) {
 		super();
 		this.id = id;

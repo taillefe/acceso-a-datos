@@ -11,6 +11,11 @@ public class Ciclo {
 	String grado;
 	
 	private List<Asignatura> listaAsignaturas;
+	
+	//constructor vacío
+	public Ciclo () {
+		
+	}
 
 	public Ciclo(int id, String nombre, String grado, List<Asignatura> listaAsignaturas) {
 		super();
