@@ -1,6 +1,8 @@
 package vista;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -74,8 +76,16 @@ public class ProgramaPrincipal {
 			try {
 				conMySQL.cargarDriver();
 				con = conMySQL.crearConexion();
+				CallableStatement st = con.prepareCall("{call borrar_asignaturas(?) }");
 				
-				
+				st.setString(1, nombreCiclo);  // asigno el valor de parámetro;
+			//	st.registerOutParameter
+				if (!st.execute()) {
+					System.out.println("El procedimiento no ha devuelto resultados");
+				}else {
+					ResultSet rs = st.getResultSet();
+					
+				}
 				
 				
 				
