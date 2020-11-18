@@ -388,26 +388,5 @@ public class CicloDAO implements ICicloDAO {
 			}
 		}
 	}
-	
-	
 
-	
-	/*
-	
-	insertarCiclo(Ciclo c, Conexion con)
-	if (con == null) {
-		new Conexion()
-	}
-	
-	insertarCiclo(Ciclo c){
-		insertarCiclo(c,null)
-		
-	}
-	
-	insertarTrans(ciclo c, listado asig){
-		con c=
-				insertarCiclo(c,con)
-	}
-	
-	*/
 }

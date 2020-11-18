@@ -1,10 +1,13 @@
 package vista;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import datos.AsignaturaDAO;
 import datos.CicloDAO;
+import datos.ConexionMySQL;
 import modelo.entidades.Asignatura;
 import modelo.entidades.Ciclo;
 
@@ -32,7 +35,7 @@ public class ProgramaPrincipal {
 		c.setId(5);
 		c.setNombre("DAW");
 		c.setGrado("superior");
-		ciclo.insertarCiclo(c);
+	//	ciclo.insertarCiclo(c);
 		
 		System.out.println ("ciclo : "+ c);
 		
@@ -58,10 +61,34 @@ public class ProgramaPrincipal {
 		
 	//	System.out.println ("lista : "+ lista);
 	
-	// ciclo.crearCiclo(c, lista);
-		
-
-		
+	  ciclo.crearCiclo(c, lista);
+	  System.out.println ("ciclo : "+ c);
+	
 	}
+	
+	public void borrarAsignaturas(String nombreCiclo) {
+		
+			Connection con= null;
+			ConexionMySQL conMySQL = new ConexionMySQL();
+		
+			try {
+				conMySQL.cargarDriver();
+				con = conMySQL.crearConexion();
+				
+				
+				
+				
+				
+				
+					
+			} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+				
+	}		
 
 }
