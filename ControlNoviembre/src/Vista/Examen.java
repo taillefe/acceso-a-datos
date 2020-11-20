@@ -66,15 +66,8 @@ public class Examen {
 		
 		
 		texto = texto + profesor.toString();
-		System.out.println(listaAsignaturas);
-		
-		
-		
-		
-		
+		System.out.println("primera lista" +listaAsignaturas);
 	
-		
-		
 		
 		// Apartado 1
 		
@@ -128,7 +121,7 @@ public class Examen {
 		for(Asignatura a : listaAsignaturas) {
 			
 	    	listaProfesores.add(a.getProfesor());
-	    //	System.out.println("l"+listaProfesores);
+	    	System.out.println("l"+listaProfesores);
 		}	
 		
 		try {

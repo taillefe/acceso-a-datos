@@ -71,7 +71,7 @@ public class ProcesamientoXMLJSON implements IProcesamiento{
 	 * guardarProfesores
 	 */
 	public void guardarProfesores(ArrayList<Profesor> profesores,String ruta) throws IOException, JAXBException {
-		// TODO Guardar según lo indicado en el apartado 4 del exámen
+		// TODO Guardar según lo indicado en el apartado 3 del exámen
 		
 		File file = new File(ruta);
 		if (!file.exists()) {

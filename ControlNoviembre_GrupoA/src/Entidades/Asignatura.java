@@ -6,7 +6,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Asignatura {
-	@XmlTransient
+	@XmlTransient  // para JAXB
 	@Expose(serialize = false, deserialize = false) 
 	private int id;
 	@SerializedName("nombreAsignatura")

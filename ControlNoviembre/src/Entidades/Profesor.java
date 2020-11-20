@@ -3,6 +3,7 @@ package Entidades;
 import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 //@XmlType(propOrder={"id", "nombre" , "apellidos" }) // orden
@@ -11,10 +12,11 @@ import javax.xml.bind.annotation.XmlType;
  *
  */
 public class Profesor implements Serializable {
+	@XmlTransient  // para JAXB
 	private int id;
-	@XmlElement   // se indica que es un elemento
+	
 	private String nombre;
-	@XmlElement   // se indica que es un elemento
+	
 	private String apellidos;
 
 	
@@ -25,12 +27,14 @@ public class Profesor implements Serializable {
 		this.id = id;
 	}
 	
+	@XmlElement   // se indica que es un elemento
 	public String getNombre() {
 		return nombre;
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	@XmlElement   // se indica que es un elemento
 	public String getApellidos() {
 		return apellidos;
 	}

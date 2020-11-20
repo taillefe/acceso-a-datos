@@ -48,10 +48,13 @@ public class ProcesamientoFichero implements IProcesamiento {
 			
 		//	FileOutputStream fos = new FileOutputStream(ruta);                                                 
 		  //  ObjectOutputStream oos = new ObjectOutputStream(fos);
-			String listaAsignaturasString = asignaturas.toString();
+			String listaAsignaturasString ="";
+			for(Asignatura a : asignaturas) {
+				listaAsignaturasString =listaAsignaturasString + a.toString()+"\n";
+			}
 		//	for(Asignatura a : asignaturas) {
 		    
-		//    	dos.write((listaAsignaturasString));
+		    	dos.write((listaAsignaturasString.getBytes()));
 		    	System.out.println("escribir asignaturas : " + listaAsignaturasString);
 		    	
 			//}	
@@ -100,7 +103,8 @@ public class ProcesamientoFichero implements IProcesamiento {
 		try
 		{
 		// leer con isr.write();
-			listadoAsignaturasString = Integer.toString(isr.read());
+			
+			listadoAsignaturasString = listadoAsignaturasString+(char) isr.read();
 			
 			
 		}catch(EOFException e){
