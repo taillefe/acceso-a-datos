@@ -1,0 +1,34 @@
+[
+  {
+    "nombreAsignatura": "Acceso a Datos",
+    "horas": 120,
+    "profesor": {
+      "nombre": "Fernando",
+      "apellidos": "Vazquez"
+    }
+  },
+  {
+    "nombreAsignatura": "Interfaces",
+    "horas": 140,
+    "profesor": {
+      "nombre": "Fernando",
+      "apellidos": "Vazquez"
+    }
+  },
+  {
+    "nombreAsignatura": "Dispositivos Moviles",
+    "horas": 160,
+    "profesor": {
+      "nombre": "Daniel",
+      "apellidos": "Rivas"
+    }
+  },
+  {
+    "nombreAsignatura": "Programación de Servicios y Procesos",
+    "horas": 180,
+    "profesor": {
+      "nombre": "Jesus",
+      "apellidos": "Otero"
+    }
+  }
+]

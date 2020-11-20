@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Profesores>
+    <profesor>
+        <apellidos>Vazquez</apellidos>
+        <nombre>Fernando</nombre>
+    </profesor>
+    <profesor>
+        <apellidos>Vazquez</apellidos>
+        <nombre>Fernando</nombre>
+    </profesor>
+    <profesor>
+        <apellidos>Rivas</apellidos>
+        <nombre>Daniel</nombre>
+    </profesor>
+    <profesor>
+        <apellidos>Otero</apellidos>
+        <nombre>Jesus</nombre>
+    </profesor>
+</Profesores>

@@ -1,0 +1,5 @@
+
+Asignatura [id=1, nombre=Acceso a Datos, horas=120, profesor=Profesor->{id: 1 Nombre:Fernando Apellidos:Vazquez}]
+Asignatura [id=2, nombre=Interfaces, horas=140, profesor=Profesor->{id: 1 Nombre:Fernando Apellidos:Vazquez}]
+Asignatura [id=3, nombre=Dispositivos Moviles, horas=160, profesor=Profesor->{id: 2 Nombre:Daniel Apellidos:Rivas}]
+Asignatura [id=4, nombre=Programación de Servicios y Procesos, horas=180, profesor=Profesor->{id: 3 Nombre:Jesus Apellidos:Otero}]

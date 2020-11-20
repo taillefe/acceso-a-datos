@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listaAsignaturas>
+	<asignatura>
+		<id>1</id>
+		<nombre>Acceso a Datos</nombre>
+		<horasAsignadas>160</horasAsignadas>
+		<profesor>
+			<id>1</id>
+			<nombre>Fernando</nombre>
+			<apellidos>Vazquez</apellidos>
+		</profesor>
+	</asignatura>
+	<asignatura>
+		<id>2</id>
+		<nombre>Interfaces</nombre>
+		<horasAsignadas>160</horasAsignadas>
+		<profesor>
+			<id>1</id>
+			<nombre>Fernando</nombre>
+			<apellidos>Vazquez</apellidos>
+		</profesor>
+	</asignatura>
+	<asignatura>
+		<id>3</id>
+		<nombre>Dispositivos Moviles</nombre>
+		<horasAsignadas>160</horasAsignadas>
+		<profesor>
+			<id>2</id>
+			<nombre>Daniel</nombre>
+			<apellidos>Rivas</apellidos>
+		</profesor>
+	</asignatura>
+	<asignatura>
+		<id>4</id>
+		<nombre>Programacion de Servicios y Procesos</nombre>
+		<horasAsignadas>160</horasAsignadas>
+		<profesor>
+			<id>3</id>
+			<nombre>Jesus</nombre>
+			<apellidos>Otero</apellidos>
+		</profesor>
+	</asignatura>
+</listaAsignaturas>
