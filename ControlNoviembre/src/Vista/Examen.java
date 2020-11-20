@@ -62,9 +62,7 @@ public class Examen {
 		listaAsignaturas.add(asignatura4);
 		
 		String texto = asignatura.toString();
-		
-		
-		
+	
 		texto = texto + profesor.toString();
 		System.out.println("primera lista" +listaAsignaturas);
 	
