@@ -5,6 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Period;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 import modelo.ICicloDAO;
@@ -168,7 +172,9 @@ public class CicloDAO implements ICicloDAO {
 
 	@Override
 	public void insertarCiclo(List<Ciclo> lista) {
+		LocalDateTime inicio=LocalDateTime.now();  // para tomar el momento del inicio de la transacción
 		
+		// con ejecución por lotes
 		Connection con= null;
 		ConexionMySQL conMySQL = new ConexionMySQL();
 		PreparedStatement ps = null;
@@ -181,21 +187,25 @@ public class CicloDAO implements ICicloDAO {
 			// recorrer toda la lista de ciclos
 			// hacer un prepareStatement para insertar
 			// los datos de ciclo c
-			
-			for (Ciclo c: lista) {
-				String consulta ="INSERT INTO CICLO "
+			String consulta ="INSERT INTO CICLO "
 						+ "(NOMBRE, GRADO) VALUES "
 						+"(?,?);";
 			
 				ps = con.prepareStatement(consulta);
+			for (Ciclo c: lista) {
+				
 				
 				ps.setString(1, c.getNombre());
 				ps.setString(2, c.getGrado());
-				ps.executeUpdate();
+				ps.addBatch();  // se añade al lote de ejecución
 				
 			}
+			ps.executeBatch();  // ejecución del lote
 			con.commit();
 			ps.close();
+
+			long seconds = inicio.until( LocalDateTime.now(), ChronoUnit.SECONDS );  // compara el tiempo de entrara y el de salida
+			System.out.println("Han pasado: " + seconds + " segundos");
 		}catch (ClassNotFoundException ex) {
 			System.out.println("Error al cargar el driver de la bbdd");
 			ex.printStackTrace();

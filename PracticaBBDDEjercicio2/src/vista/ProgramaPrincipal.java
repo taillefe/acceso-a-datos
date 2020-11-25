@@ -25,23 +25,69 @@ public class ProgramaPrincipal {
 		
 		// crear la lista de asignaturas de un ciclo
 		
+		
+	//	borrarAsignaturas("DAM");
 		ArrayList<Asignatura> lista = new ArrayList<Asignatura>();
+		ArrayList<Ciclo> listac = new ArrayList<Ciclo>();
+/*		
+		c.setGrado("superiorymas");
+		c.setNombre("DAM1");
+		c.setId(4);
+		listac.add(c);
+		c = new Ciclo();
+		c.setGrado("superiorymas");
+		c.setNombre("DAM2");
+		c.setId(4);
+		listac.add(c);
+		c = new Ciclo();
+		c.setGrado("superiorymas");
+		c.setNombre("DAM3");
+		c.setId(4);
+		listac.add(c);
+		c = new Ciclo();
+		c.setGrado("superiorymas");
+		c.setNombre("DAM4");
+		c.setId(4);
+		listac.add(c);
+		c = new Ciclo();
+		c.setGrado("superiorymas");
+		c.setNombre("DAM5");
+		c.setId(4);
+		listac.add(c);
+		c = new Ciclo();
+		c.setGrado("superiorymas");
+		c.setNombre("DAM6");
+		c.setId(4);
+		listac.add(c);
+		c = new Ciclo();
+		c.setGrado("superiorymas");
+		c.setNombre("DAM7");
+		c.setId(4);
+		listac.add(c);
+		c = new Ciclo();
+	*/
+		c.setGrado("superiorymas");
+		c.setNombre("DAM8");
+		c.setId(4);
+		listac.add(c);
+		c = new Ciclo();
 		
 		c.setGrado("superiorymas");
 		c.setNombre("DAM");
 		c.setId(4);
+		listac.add(c);
+	
 		
-	//	ciclo.modificarCiclo(c);
-	//	ciclo.eliminarCiclo(c);
-		
+		c = new Ciclo();
 		c.setId(5);
 		c.setNombre("DAW");
 		c.setGrado("superior");
-	//	ciclo.insertarCiclo(c);
-		
-		System.out.println ("ciclo : "+ c);
-		
+		listac.add(c);
 	
+		ciclo.insertarCiclo(listac);
+		System.out.println ("lista ciclo : "+ listac);
+		
+	//	System.out.println ("ciclo : "+ c);
 		
 		a.setId(2);
 		a.setNombre("primera");
@@ -49,9 +95,29 @@ public class ProgramaPrincipal {
 		a.setIdCiclo(4);
 		lista.add(a);
 		
-	
-		asignatura.insertarAsignatura(a);
-		System.out.println ("asignatura : "+ a);
+		a = new Asignatura();
+		a.setId(2);
+		a.setNombre("primera");
+		a.setHorasSemanales(160);
+		a.setIdCiclo(4);
+		lista.add(a);
+		
+		a = new Asignatura();
+		a.setId(2);
+		a.setNombre("primera");
+		a.setHorasSemanales(160);
+		a.setIdCiclo(4);
+		lista.add(a);
+		
+		a = new Asignatura();
+		a.setId(2);
+		a.setNombre("primera");
+		a.setHorasSemanales(160);
+		a.setIdCiclo(4);
+		lista.add(a);
+		
+	//	asignatura.insertarAsignatura(lista);
+	//	System.out.println ("lista asignatura : "+ lista);
 		
 		a = new Asignatura();
 		
@@ -63,12 +129,12 @@ public class ProgramaPrincipal {
 		
 	//	System.out.println ("lista : "+ lista);
 	
-	  ciclo.crearCiclo(c, lista);
-	  System.out.println ("ciclo : "+ c);
+//	  ciclo.crearCiclo(c, lista);
+	//  System.out.println ("ciclo : "+ c);
 	
 	}
 	
-	public void borrarAsignaturas(String nombreCiclo) {
+	public static void borrarAsignaturas(String nombreCiclo) {
 		
 			Connection con= null;
 			ConexionMySQL conMySQL = new ConexionMySQL();
@@ -80,17 +146,8 @@ public class ProgramaPrincipal {
 				
 				st.setString(1, nombreCiclo);  // asigno el valor de parámetro;
 			//	st.registerOutParameter
-				if (!st.execute()) {
-					System.out.println("El procedimiento no ha devuelto resultados");
-				}else {
-					ResultSet rs = st.getResultSet();
-					
-				}
-				
-				
-				
-				
-					
+				 st.getUpdateCount();
+
 			} catch (ClassNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
