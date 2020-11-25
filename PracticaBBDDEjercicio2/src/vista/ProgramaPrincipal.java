@@ -74,17 +74,17 @@ public class ProgramaPrincipal {
 		
 		c.setGrado("superiorymas");
 		c.setNombre("DAM");
-		c.setId(4);
+		c.setId(20);
 		listac.add(c);
 	
-		
+	//ciclo.eliminarCiclo(c);
 		c = new Ciclo();
 		c.setId(5);
 		c.setNombre("DAW");
 		c.setGrado("superior");
 		listac.add(c);
 	
-		ciclo.insertarCiclo(listac);
+	//	ciclo.insertarCiclo(listac);
 		System.out.println ("lista ciclo : "+ listac);
 		
 	//	System.out.println ("ciclo : "+ c);
@@ -115,7 +115,7 @@ public class ProgramaPrincipal {
 		a.setHorasSemanales(160);
 		a.setIdCiclo(4);
 		lista.add(a);
-		
+		borrarAsignaturas("DAW");
 	//	asignatura.insertarAsignatura(lista);
 	//	System.out.println ("lista asignatura : "+ lista);
 		
@@ -147,7 +147,11 @@ public class ProgramaPrincipal {
 				st.setString(1, nombreCiclo);  // asigno el valor de parámetro;
 			//	st.registerOutParameter
 				 st.getUpdateCount();
-
+				if (!st.execute()) {
+					// entra por aquí si el método no devuelve nada
+				}else {
+					ResultSet rs = st.getResultSet(); // si devuelve algo se usa 
+				}
 			} catch (ClassNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
