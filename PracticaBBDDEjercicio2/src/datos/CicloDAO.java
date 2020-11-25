@@ -243,14 +243,14 @@ public class CicloDAO implements ICicloDAO {
 			// recorrer toda la lista de ciclos
 			// hacer un prepareStatement para insertar
 			// los datos de ciclo c
-			
+			String consulta ="DELETE FROM CICLO "
+					+ "WHERE ID = ?;";
+			ps = con.prepareStatement(consulta);
 			for (Ciclo c: lista) {
-				String consulta ="DELETE FROM CICLO "
-						+ "WHERE ID = ?;";
-				ps = con.prepareStatement(consulta);
 				ps.setInt(1, c.getId());
-				ps.executeUpdate();
+				ps.addBatch();  // se añade al lote de ejecución
 			}
+			ps.executeBatch();  // ejecución del lote
 			con.commit();
 			ps.close();
 		}catch (ClassNotFoundException ex) {
@@ -292,18 +292,18 @@ public class CicloDAO implements ICicloDAO {
 			// recorrer toda la lista de ciclos
 			// hacer un prepareStatement para insertar
 			// los datos de ciclo c
-			
+			String consulta ="UPDATE CICLO "
+					+ "SET  NOMBRE= ?, GRADO = ? "
+					+ "WHERE ID = ?;";
+			ps = con.prepareStatement(consulta);			
 			for (Ciclo c: lista) {
-				String consulta ="UPDATE CICLO "
-						+ "SET  NOMBRE= ?, GRADO = ? "
-						+ "WHERE ID = ?;";
-				ps = con.prepareStatement(consulta);
+
 				ps.setInt(3, c.getId());
 				ps.setString(1, c.getNombre());
 				ps.setString(2, c.getGrado());
-				ps.executeUpdate();
-				
+				ps.addBatch();  // se añade al lote de ejecución
 			}
+			ps.executeBatch();  // ejecución del lote
 			con.commit();
 			ps.close();
 		}catch (ClassNotFoundException ex) {
@@ -360,20 +360,20 @@ public class CicloDAO implements ICicloDAO {
 			ResultSet rs = ps.getGeneratedKeys();	// posicionado al principio
 			
 			rs.next();  // se posiciona en la primera posición, que es la que nos interesa
-			for (Asignatura a: lista) {
-				String consulta ="INSERT INTO ASIGNATURA "
-						+ "(NOMBRE, HORAS_SEMANALES, ID_CICLO) VALUES "
-						+"(?,?,?);";
-			
-				ps = con.prepareStatement(consulta);
+			String consulta ="INSERT INTO ASIGNATURA "
+					+ "(NOMBRE, HORAS_SEMANALES, ID_CICLO) VALUES "
+					+"(?,?,?);";
 		
+			ps = con.prepareStatement(consulta);
+			for (Asignatura a: lista) {
 				ps.setString(1, a.getNombre());
 				ps.setInt(2, a.getHorasSemanales());
 				// como id del ciclo al que pertenecen las asignaturas
 				// recojo el valor de la clave creada anteriormente
 				ps.setInt(3, rs.getInt(1));
-				ps.executeUpdate();
+				ps.addBatch();  // se añade al lote de ejecución
 			}
+			ps.executeBatch();  // ejecución del lote
 			con.commit();
 			ps.close();
 		}catch (ClassNotFoundException ex) {

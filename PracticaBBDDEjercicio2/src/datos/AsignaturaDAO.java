@@ -168,19 +168,20 @@ public class AsignaturaDAO implements IAsignaturaDAO {
 			// recorrer toda la lista de asignaturas
 			// hacer un prepareStatement para insertar
 			// los datos de cada asignatura a			
-			for (Asignatura a: lista) {
-				String consulta ="INSERT INTO ASIGNATURA "
-						+ "(NOMBRE, HORAS_SEMANALES, ID_CICLO) VALUES "
-						+"(?,?,?);";
+			String consulta ="INSERT INTO ASIGNATURA "
+					+ "(NOMBRE, HORAS_SEMANALES, ID_CICLO) VALUES "
+					+"(?,?,?);";
+		
+			ps = con.prepareStatement(consulta);
 			
-				ps = con.prepareStatement(consulta);
+			for (Asignatura a: lista) {
 				
 				ps.setString(1, a.getNombre());
 				ps.setInt(2, a.getHorasSemanales());
 				ps.setInt(3, a.getIdCiclo());
-				ps.executeUpdate();
-				
+				ps.addBatch();  // se añade al lote de ejecución
 			}
+			ps.executeBatch();  // ejecución del lote
 			con.commit();
 			ps.close();
 		}catch (ClassNotFoundException ex) {
@@ -219,16 +220,17 @@ public class AsignaturaDAO implements IAsignaturaDAO {
 			// recorrer toda la lista de asignaturas
 			// hacer un prepareStatement para insertar
 			// los datos de cada asignatura a			
-			for (Asignatura a: lista) {
-				String consulta ="DELETE FROM ASIGNATURA "
-						+ "WHERE ID = ?; ";
+			String consulta ="DELETE FROM ASIGNATURA "
+					+ "WHERE ID = ?; ";
+		
+			ps = con.prepareStatement(consulta);
 			
-				ps = con.prepareStatement(consulta);
+			for (Asignatura a: lista) {
 				
 				ps.setInt(1, a.getId());
-				ps.executeUpdate();
-				
+				ps.addBatch();  // se añade al lote de ejecución
 			}
+			ps.executeBatch();  // ejecución del lote
 			con.commit();
 			ps.close();
 		}catch (ClassNotFoundException ex) {
@@ -267,20 +269,21 @@ public class AsignaturaDAO implements IAsignaturaDAO {
 			// recorrer toda la lista de asignaturas
 			// hacer un prepareStatement para insertar
 			// los datos de cada asignatura a			
-			for (Asignatura a: lista) {
-				String consulta ="UPDATE ASIGNATURA "
-						+ "SET NOMBRE = ?, HORAS_SEMANALES = ?, ID_CICLO =? "
-						+"WHERE ID = ?;";
+			String consulta ="UPDATE ASIGNATURA "
+					+ "SET NOMBRE = ?, HORAS_SEMANALES = ?, ID_CICLO =? "
+					+"WHERE ID = ?;";
+		
+			ps = con.prepareStatement(consulta);
 			
-				ps = con.prepareStatement(consulta);
+			for (Asignatura a: lista) {
 				
 				ps.setString(1, a.getNombre());
 				ps.setInt(2, a.getHorasSemanales());
 				ps.setInt(3, a.getIdCiclo());
 				ps.setInt(4, a.getId());
-				ps.executeUpdate();
-				
+				ps.addBatch();  // se añade al lote de ejecución
 			}
+			ps.executeBatch();  // ejecución del lote
 			con.commit();
 			ps.close();
 		}catch (ClassNotFoundException ex) {
