@@ -73,7 +73,6 @@ public class CicloDAO implements ICicloDAO {
 		
 	}
 		
-	
 
 	@Override
 	public void eliminarCiclo(Ciclo c) {

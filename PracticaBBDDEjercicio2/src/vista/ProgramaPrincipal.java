@@ -10,8 +10,13 @@ import java.util.List;
 import datos.AsignaturaDAO;
 import datos.CicloDAO;
 import datos.ConexionMySQL;
+import modelo.MapeadorAsignaturaVO;
 import modelo.entidades.Asignatura;
 import modelo.entidades.Ciclo;
+import vista.presentacion.AsignaturaVO;
+import vista.presentacion.CicloVO;
+import modelo.MapeadorAsignaturaVO;
+import modelo.MapeadorCicloVO;
 
 public class ProgramaPrincipal {
 
@@ -23,69 +28,51 @@ public class ProgramaPrincipal {
 		Ciclo c = new Ciclo();
 		Asignatura a = new Asignatura();
 		
-		// crear la lista de asignaturas de un ciclo
+		CicloVO cVO = new CicloVO();
+		AsignaturaVO aVO = new AsignaturaVO();
 		
+		// He creado AsignaturaVO y CicloVO y sus Mapeadores con Asignatura y Ciclo
+		// para usar en la parte visual de los datos
+		MapeadorAsignaturaVO maVO = new MapeadorAsignaturaVO();
+		aVO = maVO.mapearAsignaturaAsignaturaVO (a);
 		
-	//	borrarAsignaturas("DAM");
-		ArrayList<Asignatura> lista = new ArrayList<Asignatura>();
-		ArrayList<Ciclo> listac = new ArrayList<Ciclo>();
-/*		
-		c.setGrado("superiorymas");
-		c.setNombre("DAM1");
-		c.setId(4);
-		listac.add(c);
-		c = new Ciclo();
-		c.setGrado("superiorymas");
-		c.setNombre("DAM2");
-		c.setId(4);
-		listac.add(c);
-		c = new Ciclo();
-		c.setGrado("superiorymas");
-		c.setNombre("DAM3");
-		c.setId(4);
-		listac.add(c);
-		c = new Ciclo();
-		c.setGrado("superiorymas");
-		c.setNombre("DAM4");
-		c.setId(4);
-		listac.add(c);
-		c = new Ciclo();
-		c.setGrado("superiorymas");
-		c.setNombre("DAM5");
-		c.setId(4);
-		listac.add(c);
-		c = new Ciclo();
-		c.setGrado("superiorymas");
-		c.setNombre("DAM6");
-		c.setId(4);
-		listac.add(c);
-		c = new Ciclo();
+		MapeadorCicloVO mcVO = new MapeadorCicloVO();
+		cVO = mcVO.mapearCicloCicloVO (c);
+		
+		// Trabajo con los objetos Ciclo y Asignatura directamente
+		
+		// creo la lista de asignaturas de un ciclo
+	
+		ArrayList<Asignatura> listaAsignaturas = new ArrayList<Asignatura>();
+		ArrayList<Ciclo> listaCiclos = new ArrayList<Ciclo>();
+		
+	
 		c.setGrado("superiorymas");
 		c.setNombre("DAM7");
 		c.setId(4);
-		listac.add(c);
+		listaCiclos.add(c);
 		c = new Ciclo();
-	*/
-		c.setGrado("superiorymas");
+	
+		c.setGrado("superior");
 		c.setNombre("DAM8");
 		c.setId(4);
-		listac.add(c);
+		listaCiclos.add(c);
 		c = new Ciclo();
 		
-		c.setGrado("superiorymas");
+		c.setGrado("superior+");
 		c.setNombre("DAM");
 		c.setId(20);
-		listac.add(c);
-	
-	//ciclo.eliminarCiclo(c);
+		listaCiclos.add(c);
+			
 		c = new Ciclo();
 		c.setId(5);
 		c.setNombre("DAW");
 		c.setGrado("superior");
-		listac.add(c);
+		listaCiclos.add(c);
+	// añado ciclos a la listaCiclos
+		
 	
-	//	ciclo.insertarCiclo(listac);
-		System.out.println ("lista ciclo : "+ listac);
+		System.out.println ("lista ciclo : "+ listaCiclos);
 		
 	//	System.out.println ("ciclo : "+ c);
 		
@@ -93,73 +80,54 @@ public class ProgramaPrincipal {
 		a.setNombre("primera");
 		a.setHorasSemanales(160);
 		a.setIdCiclo(4);
-		lista.add(a);
+		listaAsignaturas.add(a);
 		
 		a = new Asignatura();
 		a.setId(2);
 		a.setNombre("primera");
 		a.setHorasSemanales(160);
 		a.setIdCiclo(4);
-		lista.add(a);
+		listaAsignaturas.add(a);
 		
 		a = new Asignatura();
 		a.setId(2);
 		a.setNombre("primera");
 		a.setHorasSemanales(160);
 		a.setIdCiclo(4);
-		lista.add(a);
+		listaAsignaturas.add(a);
 		
 		a = new Asignatura();
 		a.setId(2);
 		a.setNombre("primera");
 		a.setHorasSemanales(160);
 		a.setIdCiclo(4);
-		lista.add(a);
-		borrarAsignaturas("DAW");
-	//	asignatura.insertarAsignatura(lista);
-	//	System.out.println ("lista asignatura : "+ lista);
+		listaAsignaturas.add(a);
 		
 		a = new Asignatura();
-		
 		a.setId(2);
 		a.setNombre("segunda");
 		a.setHorasSemanales(200);
 		a.setIdCiclo(4);
-		lista.add(a);
+		listaAsignaturas.add(a);
+		// añado asignaturas a la listaAsignaturas
 		
-	//	System.out.println ("lista : "+ lista);
+		
+		
+		asignatura.insertarAsignatura(listaAsignaturas);
+		ciclo.insertarCiclo(listaCiclos);
+		ciclo.eliminarCiclo(c);
 	
-//	  ciclo.crearCiclo(c, lista);
+		System.out.println ("lista asignatura : "+ listaAsignaturas);
+
+		System.out.println ("lista ciclos: "+ listaCiclos);
+	
+		ciclo.crearCiclo(c, listaAsignaturas);
+		
+		asignatura.borrarAsignaturas("DAM");  
 	//  System.out.println ("ciclo : "+ c);
 	
 	}
 	
-	public static void borrarAsignaturas(String nombreCiclo) {
-		
-			Connection con= null;
-			ConexionMySQL conMySQL = new ConexionMySQL();
-		
-			try {
-				conMySQL.cargarDriver();
-				con = conMySQL.crearConexion();
-				CallableStatement st = con.prepareCall("{call borrar_asignaturas(?) }");
-				
-				st.setString(1, nombreCiclo);  // asigno el valor de parámetro;
-			//	st.registerOutParameter
-				 st.getUpdateCount();
-				if (!st.execute()) {
-					// entra por aquí si el método no devuelve nada
-				}else {
-					ResultSet rs = st.getResultSet(); // si devuelve algo se usa 
-				}
-			} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-				
-	}		
+	
 
 }

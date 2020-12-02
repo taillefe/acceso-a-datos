@@ -1,5 +1,6 @@
 package datos;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -309,4 +310,42 @@ public class AsignaturaDAO implements IAsignaturaDAO {
 		}	
 
 	}
+	
+	
+	/**
+	 * metodo borrarAsignaturas llamando a un procedimiento almacenado en la base de datos 
+	 * call borrar_asignaturas, pasandole el nombre del ciclo que se quiere borrar.
+	 * borrará el ciclo con ese nombre que tenga el id mas grande
+	 * @param nombreCiclo
+	 */
+	public static void borrarAsignaturas(String nombreCiclo) {
+		
+			Connection con= null;
+			ConexionMySQL conMySQL = new ConexionMySQL();
+		
+			try {
+				conMySQL.cargarDriver();
+				con = conMySQL.crearConexion();
+				CallableStatement st = con.prepareCall("{call borrar_asignaturas(?) }");
+				
+				st.setString(1, nombreCiclo);  // asigno el valor de parámetro;
+			//	st.registerOutParameter
+				 st.getUpdateCount();
+				if (!st.execute()) {
+					// entra por aquí si el método no devuelve nada
+				}else {
+					ResultSet rs = st.getResultSet(); // si devuelve algo se usa 
+				}
+			} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+				
+	}		
+	
+	
+	
 }
