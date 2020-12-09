@@ -66,65 +66,74 @@ public class ProgramaPrincipal {
 			
 		c = new Ciclo();
 		c.setId(5);
-		c.setNombre("DAW");
+		c.setNombre("DAM");
 		c.setGrado("superior");
 		listaCiclos.add(c);
 	// añado ciclos a la listaCiclos
 		
-	
-		System.out.println ("lista ciclo : "+ listaCiclos);
-		
-	//	System.out.println ("ciclo : "+ c);
-		
-		a.setId(2);
+			
+		a.setId(77);
 		a.setNombre("primera");
 		a.setHorasSemanales(160);
-		a.setIdCiclo(4);
+		a.setIdCiclo(10);
 		listaAsignaturas.add(a);
 		
 		a = new Asignatura();
-		a.setId(2);
+		a.setId(77);
 		a.setNombre("primera");
 		a.setHorasSemanales(160);
-		a.setIdCiclo(4);
+		a.setIdCiclo(10);
 		listaAsignaturas.add(a);
 		
 		a = new Asignatura();
-		a.setId(2);
+		a.setId(77);
 		a.setNombre("primera");
 		a.setHorasSemanales(160);
-		a.setIdCiclo(4);
+		a.setIdCiclo(10);
 		listaAsignaturas.add(a);
 		
 		a = new Asignatura();
-		a.setId(2);
+		a.setId(77);
 		a.setNombre("primera");
 		a.setHorasSemanales(160);
-		a.setIdCiclo(4);
+		a.setIdCiclo(10);
 		listaAsignaturas.add(a);
 		
 		a = new Asignatura();
-		a.setId(2);
+		a.setId(77);
 		a.setNombre("segunda");
 		a.setHorasSemanales(200);
-		a.setIdCiclo(4);
+		a.setIdCiclo(10);
 		listaAsignaturas.add(a);
 		// añado asignaturas a la listaAsignaturas
 		
+		// en esta parte pruebo todos los métodos
+		// teniendo en cuenta que no se pueden insertar asignaturas de las que
+		// no haya creado el ciclo correspondiente antes
 		
-		
+		asignatura.insertarAsignatura(a);
+		asignatura.eliminarAsignatura(a);
+		asignatura.modificarAsignatura(a);
 		asignatura.insertarAsignatura(listaAsignaturas);
-		ciclo.insertarCiclo(listaCiclos);
+		asignatura.eliminarAsignatura(listaAsignaturas);
+		asignatura.modificarAsignatura(listaAsignaturas);
+		
+		ciclo.crearCiclo(c, listaAsignaturas);
+		ciclo.insertarCiclo(c);
+		ciclo.modificarCiclo(c);
 		ciclo.eliminarCiclo(c);
+		
+		ciclo.insertarCiclo(listaCiclos);
+		ciclo.modificarCiclo(listaCiclos);
+		ciclo.eliminarCiclo(listaCiclos);
+		
 	
 		System.out.println ("lista asignatura : "+ listaAsignaturas);
 
 		System.out.println ("lista ciclos: "+ listaCiclos);
 	
-		ciclo.crearCiclo(c, listaAsignaturas);
-		
-		asignatura.borrarAsignaturas("DAM");  
-	//  System.out.println ("ciclo : "+ c);
+	
+		System.out.println ("ciclo : "+ c);
 	
 	}
 	

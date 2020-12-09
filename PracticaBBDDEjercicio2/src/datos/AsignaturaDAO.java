@@ -181,6 +181,8 @@ public class AsignaturaDAO implements IAsignaturaDAO {
 				ps.setInt(2, a.getHorasSemanales());
 				ps.setInt(3, a.getIdCiclo());
 				ps.addBatch();  // se añade al lote de ejecución
+				
+				System.out.println("asignaturas :"+a);
 			}
 			ps.executeBatch();  // ejecución del lote
 			con.commit();
