@@ -110,7 +110,7 @@ public class ProgramaPrincipal {
 		// en esta parte pruebo todos los métodos
 		// teniendo en cuenta que no se pueden insertar asignaturas de las que
 		// no haya creado el ciclo correspondiente antes
-		
+	/*	
 		asignatura.insertarAsignatura(a);
 		asignatura.eliminarAsignatura(a);
 		asignatura.modificarAsignatura(a);
@@ -126,7 +126,8 @@ public class ProgramaPrincipal {
 		ciclo.insertarCiclo(listaCiclos);
 		ciclo.modificarCiclo(listaCiclos);
 		ciclo.eliminarCiclo(listaCiclos);
-		
+		*/
+		asignatura.borrarAsignaturas("DAM");
 	
 		System.out.println ("lista asignatura : "+ listaAsignaturas);
 

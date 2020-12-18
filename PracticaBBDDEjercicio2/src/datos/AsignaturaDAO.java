@@ -173,7 +173,7 @@ public class AsignaturaDAO implements IAsignaturaDAO {
 					+ "(NOMBRE, HORAS_SEMANALES, ID_CICLO) VALUES "
 					+"(?,?,?);";
 		
-			ps = con.prepareStatement(consulta);
+			ps = con.prepareStatement(consulta); // falta el generate keys
 			
 			for (Asignatura a: lista) {
 				
@@ -332,8 +332,10 @@ public class AsignaturaDAO implements IAsignaturaDAO {
 				
 				st.setString(1, nombreCiclo);  // asigno el valor de parámetro;
 			//	st.registerOutParameter
-				 st.getUpdateCount();
+			
+				System.out.println("Numfilas act.:"+ st.getUpdateCount()); // muestra el borrado sobre la primera tabla 
 				if (!st.execute()) {
+					
 					// entra por aquí si el método no devuelve nada
 				}else {
 					ResultSet rs = st.getResultSet(); // si devuelve algo se usa 

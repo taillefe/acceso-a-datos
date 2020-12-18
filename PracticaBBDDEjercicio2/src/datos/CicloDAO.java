@@ -190,7 +190,7 @@ public class CicloDAO implements ICicloDAO {
 						+ "(NOMBRE, GRADO) VALUES "
 						+"(?,?);";
 			
-				ps = con.prepareStatement(consulta);
+				ps = con.prepareStatement(consulta);  // falta generate keys
 			for (Ciclo c: lista) {
 				
 				
